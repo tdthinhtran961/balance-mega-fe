@@ -1,0 +1,94 @@
+{
+  "name": "react-hook",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "https://griya.dexignzone.com/react/demo/login",
+  "homepage": "./",
+  "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "antd": "5.10.2",
+    "axios": "^0.27.2",
+    "classnames": "^2.3.2",
+    "copy-to-clipboard": "^3.3.3",
+    "echarts": "^5.4.3",
+    "env-cmd": "^10.1.0",
+    "exceljs": "^4.4.0",
+    "file-saver": "^2.0.5",
+    "glightbox": "^3.2.0",
+    "i18next": "^23.6.0",
+    "i18next-browser-languagedetector": "^7.1.0",
+    "i18next-xhr-backend": "^3.2.2",
+    "immutability-helper": "^3.1.1",
+    "inputmask": "^5.0.8",
+    "interactjs": "^1.10.19",
+    "jodit": "^3.24.9",
+    "line-awesome": "^1.3.0",
+    "moment": "^2.29.4",
+    "perfect-scrollbar": "^1.5.5",
+    "react": "^18.2.0",
+    "react-big-calendar": "^1.8.4",
+    "react-color": "^2.19.3",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^13.3.1",
+    "react-infinite-scroll-component": "^6.1.0",
+    "react-nestable": "^2.0.0",
+    "react-resizable": "^3.0.5",
+    "react-router": "^6.17.0",
+    "react-router-dom": "^6.17.0",
+    "react-scripts": "5.0.1",
+    "read-excel-file": "^5.7.1",
+    "sweetalert2": "^11.7.32",
+    "unorm": "^1.6.0",
+    "uuid": "^9.0.1",
+    "web-vitals": "^3.5.0",
+    "xlsx": "^0.18.5"
+  },
+  "scripts": {
+    "start:m": "PORT=3335 react-app-rewired start",
+    "start:w": "set PORT=3335 && react-app-rewired start",
+    "build:dev": "node ./update-build.js && env-cmd -f .env react-app-rewired build",
+    "build:staging": "node ./update-build.js && env-cmd -f .env.staging react-app-rewired build",
+    "build:uat": "node ./update-build.js && env-cmd -f .env.uat react-app-rewired build",
+    "build:prod": "node ./update-build.js && env-cmd -f .env.prod react-app-rewired build",
+    "format": "prettier --write \"{src,public}/**/*.js\"",
+    "lint": "eslint \"{src,public}/**/*.js\" --fix",
+    "test": "npx codeceptjs run",
+    "update-all": "npx -p npm-check-updates ncu -u && npm install"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-n": "^16.2.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "less": "^4.2.0",
+    "less-loader": "^11.1.3",
+    "postcss": "^8.4.31",
+    "prettier": "^3.0.3",
+    "react-app-rewired": "^2.2.1",
+    "tailwindcss": "^3.3.4"
+  }
+}

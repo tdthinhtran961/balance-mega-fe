@@ -1,0 +1,135 @@
+.radioCheck {
+  .ant-radio-inner {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 14px;
+    height: 14px;
+    transition: all 0.3s;
+  }
+
+  input[type='radio']:after {
+    width: 16px;
+    height: 16px;
+    left: -1px;
+    bottom: 1px;
+    border-radius: 15px;
+    position: relative;
+    // background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    // border: 2px solid black;
+  }
+
+  input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    // left: 1px;
+    position: relative;
+    background-color: white;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 5px solid rgb(25, 144, 255);
+  }
+
+  .ant-radio {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: 'tnum', 'tnum';
+    position: relative;
+    top: 0.2em;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .ant-radio-wrapper {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: 'tnum', 'tnum';
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+
+  .ant-radio-input {
+    position: absolute;
+    border: 1px solid red !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .ant-radio-checked::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid red !important;
+    border-radius: 50%;
+    visibility: hidden;
+    -webkit-animation: antRadioEffect 0.36s ease-in-out;
+    animation: antRadioEffect 0.36s ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    content: '';
+  }
+
+  .ant-table-thead .ant-table-cell {
+    border-width: none !important;
+  }
+}
+
+.goodPriceTable {
+  width: 100%;
+  // @apply px--1
+
+  @media (max-width: 1600px) {
+    width: 1400px;
+  }
+
+  @media (min-width: 46.25em) and (max-width: 63.9375em) {
+    width: 1204px;
+  }
+
+  @media (max-width: 46.1875em) {
+    width: 1100px;
+  }
+}
+
+.list-disposal-product {
+  .ant-list-items {
+    @apply grid grid-cols-1 w-2/3 mx-auto gap-5 sm:grid-cols-3 sm:w-full md:grid-cols-3;
+  }
+
+  .ant-spin-nested-loading {
+    @apply !text-center;
+  }
+}
+
+
+.infinite-scroll-component {
+  overflow: inherit !important;
+}

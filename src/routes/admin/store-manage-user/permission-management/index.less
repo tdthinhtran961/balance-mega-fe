@@ -1,0 +1,33 @@
+.permission-check-box-group {
+  .ant-checkbox-wrapper {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+    .ant-checkbox.ant-checkbox-indeterminate ~ span {
+      margin-right: auto;
+    }
+    .ant-checkbox.ant-checkbox-indeterminate {
+      margin-right: 10px;
+    }
+    .ant-checkbox ~ span {
+      margin-right: auto;
+    }
+    .ant-checkbox-inner::after {
+      background-color: unset;
+    }
+  }
+  .check-box-group {
+    width: 100%;
+    .ant-checkbox ~ span {
+      margin-right: auto;
+      //   margin-left: 0;
+    }
+  }
+
+  .checkAllBox {
+    .ant-checkbox.ant-checkbox-checked,
+    .ant-checkbox {
+      margin-right: 10px;
+    }
+  }
+}

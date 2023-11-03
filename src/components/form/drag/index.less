@@ -1,0 +1,79 @@
+.nestable {
+  @apply relative;
+
+  .nestable-list {
+    @apply m-0 pl-10 list-none;
+  }
+  > .nestable-list {
+    @apply pl-0;
+  }
+  &-item,
+  &-item-copy {
+    &:first-child {
+      @apply mt-0;
+    }
+    .nestable-list {
+      @apply mt-3;
+    }
+    &--with-children {
+      @apply cursor-pointer;
+    }
+  }
+
+  &-item {
+    @apply relative;
+    &.is-dragging {
+      .nestable-list {
+        @apply pointer-events-none;
+      }
+      * {
+        @apply opacity-0;
+      }
+      &:before {
+        content: ' ';
+        @apply absolute inset-0 rounded;
+        @apply bg-blue-400 border-blue-400;
+      }
+    }
+
+  }
+
+  &-drag-layer {
+    @apply fixed top-0 left-0 z-10 pointer-events-none;
+    .nestable-list {
+      @apply absolute top-0 left-0 p-0;
+    }
+  }
+  &-item-icon {
+    @apply mr-1;
+
+    &.icon {
+      &-plus-gray {
+        background-image: url("Icon/icon-plus-gray.svg");
+      }
+      &-minus-gray {
+        background-image: url("Icon/icon-minus-gray.svg");
+      }
+    }
+  }
+  &-icon {
+    @apply relative inline-block bg-transparent bg-center bg-no-repeat;
+    &:before {
+      content: '-';
+      @apply inline-block w-0 h-0 overflow-hidden;
+    }
+  }
+  &.disabled .nestable-item-name { -webkit-user-drag: none; }
+}
+
+
+.item-drag {
+  @apply bg-gray-50;
+  @apply text-gray-500 rounded font-bold mt-3;
+
+  .ant-btn-icon-only.ant-btn-sm {
+    @apply w-10 h-10 rounded;
+
+    &:hover { @apply bg-gray-50; }
+  }
+}

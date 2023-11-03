@@ -1,0 +1,28 @@
+.ant-table{
+  &-content {
+    .ant-table-thead > tr > th {
+      @apply font-bold border-gray-400;
+      &.ant-table-cell-fix-left,
+      &.ant-table-cell-fix-right{
+        margin-top: 1px;
+      }
+    }
+    .ant-table-tbody > tr.ant-table-row{
+      &:nth-of-type(odd) > td {@apply bg-gray-50;}
+      &:hover > td{
+      @apply bg-gray-100 text-black;
+      }
+      > td {
+      @apply border-gray-100;
+
+        &.hover:hover {
+        @apply text-blue-700;
+        @apply cursor-pointer;
+        }
+      }
+      &:last-child > td { @apply border-none; }
+    }
+  }
+
+
+}

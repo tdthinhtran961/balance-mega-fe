@@ -1,0 +1,72 @@
+.tab-revenue {
+  .ant-tabs-nav-wrap {
+    @apply bg-white;
+    .ant-tabs-tab {
+      @apply !ml-0 p-0;
+
+      .ant-tabs-tab-btn {
+        @apply !text-black font-medium  text-sm;
+      }
+    }
+    .ant-tabs-tab-active {
+      @apply bg-white rounded-tl-xl rounded-tr-xl font-bold !text-teal-900;
+    }
+    .ant-tabs-ink-bar {
+      @apply bg-black !important;
+    }
+  }
+  .ant-tabs-content-holder {
+    @apply bg-white rounded-tl-none rounded-xl;
+  }
+}
+
+.search-container {
+  @apply relative;
+
+  .ant-input-group-addon {
+    @apply hidden;
+  }
+
+  .ant-input-suffix {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+
+    .ant-input-clear-icon-hidden {
+      visibility: hidden;
+    }
+  }
+
+  .ant-input-affix-wrapper {
+    // height: 45px;
+    // border: 1px solid #e5e7eb !important;
+    // border-radius: 10px !important;
+    background: #fff;
+    padding: 0;
+    // overflow: hidden;
+
+    .ant-input {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      height: 40px;
+      background: #fff;
+      width: 100%;
+      padding-left: 10px;
+      font-size: 14px;
+    }
+  }
+}
+.search-container.search-product {
+  .ant-input-affix-wrapper {
+    .ant-input {
+      padding-left: 55px;
+    }
+  }
+  &.manager_order {
+    .ant-input-affix-wrapper {
+      .ant-input {
+        padding-left: 37px;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+
+//pagination
+.table-paginaiton {
+  .right {
+    @apply bg-transparent;
+
+    .pointer-events-none {
+      @apply !text-gray-300;
+    }
+
+    .bg-blue-500 {
+      @apply !bg-teal-900 text-white;
+    }
+
+    button {
+      @apply h-8 rounded-xl text-teal-900;
+    }
+  }
+
+  #idTable_input_search {
+    @apply pl-8;
+  }
+
+  .la-search {
+    @apply left-3 w-4 -rotate-90;
+  }
+}
+.head-table thead tr th.ant-table-cell{
+  @apply !font-bold;
+}

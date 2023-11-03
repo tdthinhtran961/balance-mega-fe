@@ -1,0 +1,13 @@
+version: '3'
+services:          
+    frontend:
+        build: 
+            context : .
+            args:
+                ENV: prod 
+
+        container_name: frontend-prod
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"

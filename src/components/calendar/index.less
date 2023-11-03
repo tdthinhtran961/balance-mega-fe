@@ -1,0 +1,31 @@
+@import '~react-big-calendar/lib/css/react-big-calendar.css';
+
+.rbc-toolbar {
+  @apply flex-row-reverse;
+  .rbc-toolbar-label { @apply text-right; }
+
+  .rbc-btn-group > button{
+    font-family: 'Line Awesome Free', serif;
+    @apply font-black inline-block leading-none;
+
+    &:first-child:not(:last-child) { @apply hidden;}
+    &:not(:first-child):not(:last-child) {
+      @apply rounded-tl rounded-br;
+      font-size: 0;
+      &:before {
+        content: "\f104";
+        @apply text-lg;
+      }
+    }
+    &:last-child {
+      font-size: 0;
+      &:before {
+        content: "\f105";
+        @apply text-lg;
+      }
+    }
+  }
+}
+.rbc-today {
+  @apply bg-green-50;
+}

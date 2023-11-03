@@ -1,0 +1,357 @@
+.form-attribute {
+  .bg-blue-500 {
+    @apply bg-teal-900;
+  }
+  .bg-blue-400:hover {
+    @apply bg-teal-500;
+  }
+}
+.form-product-detail {
+  .ant-picker {
+    @apply w-full;
+  }
+}
+.ant-tabs-nav {
+  @apply !mb-0;
+  .ant-tabs-nav-wrap {
+    @apply bg-gray-100;
+    .ant-tabs-tab-btn {
+      @apply !text-teal-900 px-6 py-2 text-xl;
+    }
+  }
+}
+
+.ant-tabs-nav-wrap {
+  @apply bg-gray-100;
+  .ant-tabs-tab {
+    @apply !ml-0 p-0;
+
+    .ant-tabs-tab-btn {
+      @apply !text-teal-900 font-semibold px-5 py-3 sm:text-xl text-sm;
+    }
+  }
+  .ant-tabs-tab-active {
+    @apply bg-white rounded-tl-xl rounded-tr-xl font-bold;
+  }
+  .ant-tabs-ink-bar {
+    @apply bg-transparent;
+  }
+}
+.ant-tabs-content-holder {
+  @apply bg-white rounded-tl-none rounded-xl;
+}
+
+// .ant-picker-suffix {
+//   color: transparent;
+// }
+.ant-picker-input > input {
+  color: #9ca3af;
+}
+.ant-form-item-control-input-content .ant-input > input:read-only,
+.ant-form-item-control-input-content .ant-input > textarea:read-only {
+  color: rgba(0, 0, 0, 0.25);
+  background: #f3f4f6 !important;
+}
+.ant-form-item-control-input-content > input:read-only,
+.ant-form-item-control-input-content > textarea:read-only {
+  color: rgba(0, 0, 0, 0.25);
+  background: #f3f4f6 !important;
+  border-color: rgb(229 231 235);
+}
+.ant-tabs-tab {
+  opacity: 0.8;
+}
+.ant-tabs-tab.ant-tabs-tab-active {
+  opacity: 1;
+}
+// input:not([read-only]),
+// textarea:not([read-only]) {
+//   background: white;
+//   border-color: #9ca3af;
+// }
+
+input:not([disabled]),
+textarea:not([disabled]) {
+  @apply border-gray-200 bg-white text-black;
+}
+
+.ant-select-selector {
+  @apply !border-gray-200;
+}
+.ant-picker-year-panel .ant-picker-cell-inner,
+.ant-picker-quarter-panel .ant-picker-cell-inner,
+.ant-picker-month-panel .ant-picker-cell-inner {
+  width: 70px;
+}
+#idTable_input_search {
+  width: calc((100vw - 20rem) / 3) !important;
+}
+.ant-picker.ant-picker-focused {
+  background: white !important;
+}
+.ant-picker {
+  background: white !important;
+  border-radius: 10px;
+}
+.ant-input {
+  background: transparent;
+  border-radius: 0.75rem;
+}
+.ant-modal-content .ant-modal-body {
+  padding: 16px 24px;
+}
+.form-information {
+  .ant-form .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+    content: '  *' !important;
+  }
+
+  .ant-form-item-label {
+    label {
+      @apply text-base;
+    }
+  }
+}
+
+.form-address-required {
+  .ant-form .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+    @apply hidden;
+  }
+
+  label[title='Ghi chú'] {
+    @apply !text-base;
+  }
+  //  tablet
+  @media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+    .formAddress {
+      .grow {
+        .col-span-12 {
+          grid-column: span 12 / span 12 !important;
+        }
+      }
+    }
+  }
+}
+.ant-form-item-control-input-content .ant-input > input:read-only:focus,
+.ant-form-item-control-input-content .ant-input > textarea:read-only:focus {
+  outline: none !important;
+}
+.ant-input:focus {
+  // outline: none !important;
+  border-color: rgb(229 231 235);
+}
+
+.create-supplier-btn {
+  button {
+    @apply bg-teal-900 sm:!w-[171px] w-[60%] !mt-0 h-11 !text-sm !ml-0 hover:bg-teal-700 rounded-[10px];
+  }
+}
+.create-supplier-info-btn {
+  button {
+    @apply bg-teal-900 sm:!w-[130px] w-[60%] !mt-0 h-11 !text-sm !ml-0 hover:bg-teal-700 rounded-[10px];
+  }
+}
+
+.edit-supplier-btn {
+  button {
+    @apply bg-teal-900  sm:!w-[130px] w-[60%] sm:!mt-10 mt-3 h-11 !text-sm !ml-0 hover:bg-teal-700 rounded-[10px];
+  }
+}
+
+.discount-paying .ant-input-number-input {
+  width: 130px !important;
+  outline: none;
+  font-size: 16px;
+}
+.discount-paying .ant-input-number-handler-wrap {
+  display: none;
+}
+.ant-input-number {
+  outline: none;
+}
+@media only screen and (max-width: 46.1875em) {
+  .flexRowReverse {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+.discountPayment {
+  .ant-modal-body {
+    @media only screen and (max-width: 46.1875em) {
+      .w-full {
+        @apply flex items-start sm:flex-row !flex-wrap;
+      }
+      .ant-input-disabled {
+        width: -webkit-fill-available;
+      }
+      .ant-input {
+        width: inherit;
+      }
+    }
+  }
+}
+
+.editNonBalSubmit {
+  .edit-supplier-btn {
+    #idSubmit {
+      @apply !mt-0;
+    }
+  }
+}
+
+.modalFormConnectCancelReason {
+  button.btn-save:disabled {
+    @apply !bg-gray-600;
+  }
+
+  label[title='Lý do'] {
+    &::after {
+      content: '*' !important;
+      display: contents;
+      --tw-text-opacity: 1;
+      color: rgb(239 68 68 / var(--tw-text-opacity));
+    }
+  }
+
+  input,
+  textarea {
+    @apply border border-gray-200 bg-white;
+  }
+
+  .ant-modal-header {
+    @apply pl-9 pb-0 pt-8;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .ant-modal-title {
+    h3 {
+      @apply text-2xl font-bold text-teal-900;
+    }
+  }
+
+  .ant-form-item-label {
+    label {
+      @apply text-base font-normal;
+    }
+  }
+
+  .ant-modal-close {
+    svg {
+      @apply text-2xl;
+    }
+  }
+
+  .ant-modal-footer {
+    @apply bg-gray-100;
+    border-radius: 0 0 5px 5px;
+
+    div {
+      @apply justify-center;
+
+      .btn-cancel {
+        @apply w-32 h-11 border border-teal-900 text-teal-900 bg-white;
+      }
+
+      .btn-save {
+        @apply w-32 h-11 border text-white bg-teal-900 justify-center;
+      }
+    }
+  }
+
+  .ant-modal-body {
+    @apply pl-9 pr-9 pb-1;
+  }
+
+  // #taxRate:hover {
+  //   &::placeholder {
+  //     @apply  !text-gray-600;
+  //   }
+  // }
+}
+.ant-dropdown-menu-item:hover {
+  @apply rounded-lg bg-white text-teal-900;
+}
+
+a:hover {
+  @apply text-teal-900;
+}
+
+.ant-dropdown-menu-title-content {
+  @apply text-gray-400 text-base font-normal;
+}
+
+ul.ant-dropdown-menu .ant-dropdown-menu-item-selected .ant-dropdown-menu-title-content {
+  @apply bg-gray-100 text-teal-900 text-base font-semibold;
+}
+
+ul.ant-dropdown-menu .ant-dropdown-menu-item-selected {
+  @apply bg-gray-100 rounded-lg;
+}
+
+.ant-dropdown-menu-item:last-child {
+  padding: 8px 10px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.ant-dropdown-menu-item:first-child {
+  padding: 8px 10px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.ant-dropdown-menu-item:hover {
+  @apply rounded-lg bg-white text-teal-900;
+}
+
+.select-category input:disabled {
+  @apply !opacity-50;
+}
+
+.search-container {
+  @apply relative;
+
+  .ant-input-group-addon {
+    @apply hidden;
+  }
+
+  .ant-input-suffix {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+
+    .ant-input-clear-icon-hidden {
+      visibility: hidden;
+    }
+  }
+
+  .ant-input-affix-wrapper {
+    // height: 45px;
+    // border: 1px solid #e5e7eb !important;
+    // border-radius: 10px !important;
+    background: #fff;
+    padding: 0;
+    // overflow: hidden;
+
+    .ant-input {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      height: 40px;
+      background: #fff;
+      width: 100%;
+      padding-left: 10px;
+      font-size: 14px;
+    }
+  }
+}
+.search-container.search-product {
+  .ant-input-affix-wrapper {
+    .ant-input {
+      padding-left: 55px;
+    }
+  }
+  &.manager_order {
+    .ant-input-affix-wrapper {
+      .ant-input {
+        padding-left: 37px;
+      }
+    }
+  }
+}

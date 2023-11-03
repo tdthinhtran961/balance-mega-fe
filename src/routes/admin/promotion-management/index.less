@@ -1,0 +1,56 @@
+.ant-switch {
+  @apply bg-gray-400;
+}
+
+.ant-switch-checked {
+  @apply  !bg-green-600;
+}
+
+.ant-picker {
+  @apply bg-white;
+}
+
+
+.promotion-detail {
+  .ant-form-item-has-error {
+    input#code,
+    textarea#description {
+      border: 1px solid red;
+    }
+  }
+
+  input[type='text'],
+  input#startDate,
+  input#endDate {
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  input:read-only {
+    @apply text-gray-400;
+  }
+
+  .ant-input-number {
+    height: 40px !important;  
+    line-height: 40px !important;
+    width: 100% !important;
+    border-radius: 12px !important;
+  }
+
+  .ant-input-number-input {
+    border-radius: 12px !important;
+  }
+
+  .ant-input-number-handler-wrap {
+    display: none;
+  }
+
+  .ant-input-number-status-error:not(.ant-input-number-disabled):not(.ant-input-number-borderless).ant-input-number,
+  .ant-input-number-status-error:not(.ant-input-number-disabled):not(.ant-input-number-borderless).ant-input-number:hover {
+    border-color: none !important;
+  }
+
+}
+
+.table-voucher .intro-x > div:first-child {
+  @apply block lg:flex;
+}

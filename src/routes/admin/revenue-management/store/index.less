@@ -1,0 +1,62 @@
+@import url('https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css');
+
+.ant-tabs-nav {
+  @apply !mb-0;
+
+  .ant-tabs-nav-wrap {
+    @apply bg-gray-100;
+
+    .ant-tabs-tab {
+      @apply !ml-0 p-0;
+
+      .ant-tabs-tab-btn {
+        @apply !text-teal-900 font-semibold px-5 py-3 text-xl;
+      }
+    }
+
+    .ant-tabs-tab-active {
+      @apply bg-white rounded-tl-xl rounded-tr-xl font-bold;
+    }
+
+    .ant-tabs-ink-bar {
+      @apply bg-transparent;
+    }
+  }
+}
+
+.ant-tabs-tab {
+  opacity: 0.8;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+  opacity: 1;
+}
+
+.revenueByOrderStore .intro-x > div:first-child {
+  @apply block xl:flex items-start;
+}
+
+.revenueByProductStore .intro-x > div:first-child {
+  @apply block 2xl:flex items-start;
+}
+
+.ant-table table {
+  width: 100%;
+}
+
+.hiddenScroll {
+  .ant-table-body {
+    overflow-y: auto !important;
+  }
+}
+.abcdfeghik {
+  @media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+    .ant-table table {
+      width: 800px;
+    }
+  }
+}
+
+.ant-form .ant-form-item {
+  margin-bottom: 0.25rem;
+}

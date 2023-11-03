@@ -1,0 +1,62 @@
+.submit-btn {
+  button {
+    @apply px-4 bg-teal-900 ml-4 !mt-0 w-48;
+  }
+}
+
+.ant-form.ml-4 {
+  margin-left: 0;
+}
+
+input:not([readonly]),
+textarea:not([readonly]) {
+  background: white;
+  border-color: #9ca3af;
+}
+
+input[disabled],
+textarea[disabled] {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+th {
+  font-weight: bold !important;
+}
+
+.ant-table-thead tr th .ant-table-column-sorter {
+  display: block !important;
+}
+
+.ant-form-item-control-input-content .ant-input > input:read-only:focus,
+.ant-form-item-control-input-content .ant-input > textarea:read-only:focus {
+  outline: none !important;
+}
+.ant-input:focus {
+  // outline: none !important;
+  border-color: rgb(229 231 235);
+}
+
+// input:not([disabled]),
+// textarea:not([disabled]) {
+//   @apply border-gray-200 bg-white text-black;
+// }
+
+input[disabled],
+textarea[disabled] {
+  color: rgba(0, 0, 0, 0.25) !important;
+  @apply bg-gray-100 border-gray-300;
+}
+
+input[readonly],
+textarea[readonly] {
+  color: rgba(0, 0, 0, 0.25) !important;
+  @apply !bg-gray-100 border-gray-300;
+}
+
+.user .ant-input {
+  @apply bg-transparent;
+}
+
+.table-user .intro-x > div:first-child {
+  @apply block lg:flex items-start;
+}

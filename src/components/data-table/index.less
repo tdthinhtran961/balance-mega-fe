@@ -1,0 +1,38 @@
+.ant-table{
+  &-content {
+    .ant-table-thead > tr > th {
+      @apply font-bold border-gray-400;
+      &.ant-table-cell-fix-left,
+      &.ant-table-cell-fix-right{ @apply ~'mt-[1px]'; }
+    }
+    .ant-table-tbody > tr.ant-table-row{
+      &:nth-of-type(odd) > td {@apply bg-gray-50;}
+      &:hover > td{
+      @apply bg-gray-200 text-black;
+      }
+      > td {
+      @apply border-gray-200;
+
+        &.hover:hover {
+        @apply text-blue-700;
+        @apply cursor-pointer;
+        }
+      }
+      &:last-child > td { @apply border-none; }
+    }
+  }
+  .react-resizable {
+    position: relative;
+    background-clip: padding-box;
+  }
+
+  .react-resizable-handle {
+    position: absolute;
+    right: -5px;
+    bottom: 0;
+    z-index: 1;
+    width: 10px;
+    height: 100%;
+    cursor: col-resize;
+  }
+}

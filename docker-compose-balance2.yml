@@ -1,0 +1,13 @@
+version: '3'
+services:          
+    frontend:
+        build: 
+            context : .
+            args:
+                ENV: balance2 
+
+        container_name: balance2-fe
+        restart: always
+        ports:
+            - "8880:80"
+            - "443:443"

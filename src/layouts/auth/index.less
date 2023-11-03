@@ -1,0 +1,87 @@
+  .layout-auth{
+  .ant-input {
+    border: none !important;
+
+    input {
+      @apply  !bg-green-900;
+      @apply  !text-white;
+    }
+  }
+
+  input {
+    @apply  !bg-green-900;
+    @apply  !text-white;
+  }
+
+  .ant-input:focus {
+    border: none !important;
+  }
+
+  .ant-form-item-has-error :not(.ant-input-disabled):not(.ant-input-borderless).ant-input,
+  .ant-form-item-has-error :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper,
+  .ant-form-item-has-error :not(.ant-input-number-affix-wrapper-disabled):not(.ant-input-number-affix-wrapper-borderless).ant-input-number-affix-wrapper,
+  .ant-form-item-has-error :not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover,
+  .ant-form-item-has-error :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover,
+  .ant-form-item-has-error :not(.ant-input-number-affix-wrapper-disabled):not(.ant-input-number-affix-wrapper-borderless).ant-input-number-affix-wrapper:hover {
+    input {
+      @apply bg-green-900;
+      @apply text-white;
+    }
+  }
+
+  .ant-form-item-has-error :not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover {
+    input {
+      @apply bg-green-900;
+      @apply text-white;
+    }
+  }
+
+  .ant-form-item-label>label {
+    @apply text-green-900;
+  }
+
+  ::-webkit-input-placeholder {
+    /* Edge */
+    color: white;
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: white;
+  }
+
+  ::placeholder {
+    color: white;
+
+  }
+
+  .ant-form-item-required {
+    @apply  !text-green-900;
+  }
+
+  // Auto fill 
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px rgb(20 83 45 / var(--tw-bg-opacity)) inset !important;
+    -webkit-text-fill-color: white !important;
+  }
+
+  .title-auth {
+    h1 {
+      @apply text-4xl mb-8 font-bold text-center text-green-900;
+    }
+
+    h5 {
+      @apply font-medium text-center text-green-900;
+    }
+  }
+
+  .form-login {
+    #submit-btn {
+      @apply bg-green-500;
+      @apply text-green-900;
+    }
+  }
+}

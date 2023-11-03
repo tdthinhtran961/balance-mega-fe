@@ -1,0 +1,334 @@
+.good-return-container {
+  .ant-input-number-input {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    min-width: 100% !important;
+    height: 36px;
+    overflow: hidden;
+  }
+
+  .ant-input-number-status-error:not(.ant-input-number-disabled):not(.ant-input-number-borderless).ant-input-number-focused {
+    box-shadow: none !important;
+  }
+
+  // .ant-form-item-explain-error {
+  //   width: 300px;
+  // }
+
+  .ant-input-number-handler-wrap {
+    display: none;
+  }
+
+  .ant-input-number {
+    border: 0;
+    border-radius: 10px;
+  }
+
+  .ant-input-number:focus,
+  .ant-input-number-focused {
+    border: 0;
+    box-shadow: none;
+    border-right-width: 0;
+    outline: 0;
+  }
+
+  .abc {
+    ::-webkit-scrollbar {
+      height: 10px;
+      width: 5px;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+
+  .goodReturn-info-create {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    @media (min-width: 890px) {
+      flex-direction: row;
+      align-items: center;
+      gap: 0;
+    }
+  }
+  .goodReturn-info-create-bellow {
+    display: unset;
+    @media (min-width: 890px) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0;
+    }
+  }
+  .goodsReturn-datepicker {
+    width: 100%;
+    @media (min-width: 890px) {
+      width: 171px;
+    }
+  }
+
+  .totalMoney-area {
+    width: 100%;
+    @media (min-width: 600px) {
+      width: 80%;
+    }
+    @media (min-width: 932px) {
+      width: 60%;
+    }
+    @media (min-width: 1200px) {
+      width: 45%;
+    }
+    @media (min-width: 1400px) {
+      width: 40%;
+    }
+  }
+
+  .goodsReturn-button-group {
+    flex-direction: column-reverse;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: 586px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .goodsReturn-right-button-group {
+    flex-direction: column-reverse;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: 586px) {
+      flex-direction: row;
+    }
+  }
+
+  .goodsReturn-right-button-group-detailSide {
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: 713px) {
+      flex-direction: row;
+    }
+  }
+
+  .edit-goodsReturn-button {
+    width: 100%;
+    @media (min-width: 713px) {
+      width: 156px;
+    }
+  }
+
+  .goodsReturn-back-button {
+    width: 185px;
+    @media (min-width: 586px) {
+      width: 106px;
+    }
+  }
+
+  .goods-return-submit-button-createSide {
+    width: 100%;
+    @media (min-width: 586px) {
+      width: 137px;
+    }
+  }
+
+  .goodsReturn-bill-export-button {
+    margin-right: 0;
+    @media (min-width: 586px) {
+      margin-right: 1rem;
+    }
+  }
+
+  .goods-return-save-button {
+    width: 100%;
+    @media (min-width: 586px) {
+      width: 156px;
+    }
+  }
+
+  .goodsReturn-bill-export-button-Ndetail {
+    margin-right: 0;
+    @media (min-width: 713px) {
+      margin-right: 1rem;
+    }
+  }
+
+  .goods-return-delete-button {
+    margin-left: 0;
+    width: 100%;
+    @media (min-width: 713px) {
+      margin-left: 1rem;
+      width: 84px;
+    }
+  }
+
+    .goods-input-code{
+      grid-template-columns: unset;
+      @media (min-width: 582px) {
+        grid-template-columns: 140px minmax(140px, 1fr);
+      }
+    }
+
+    .input-goods-return-input{
+      margin-top: 0;
+      @media (min-width: 582px) {
+        margin-top: 1rem;
+      }
+    }
+
+    .goods-return-info-section{
+      grid-template-columns: unset;
+      @media (min-width: 582px) {
+        grid-template-columns: 180px minmax(180px, 1fr);
+        margin-top: 5px;
+      }
+    }
+
+    .goods-return-row{
+      display: unset;
+      @apply lg:flex-row flex-col;
+      @media (min-width: 582px) {
+        display: flex;
+      }
+    }
+
+    .goods-return-title{
+      margin-bottom: 0;
+      flex-direction: column;
+      @media (min-width: 582px) {
+        margin-bottom: 1rem;
+        flex-direction: row;
+      }
+    }
+
+    .goods-return-first-title{
+      margin-right: 0;
+      @media (min-width: 582px) {
+        margin-right: 12px;
+      }
+    }
+
+    .goods-return-section-info-col{
+      // max-width: 50%;
+      @media (min-width: 576px) {
+        max-width: unset;
+      }
+    }
+
+    .total-money-content{
+      @media (max-width: 400px) {
+        flex-direction: column;
+      }
+    }
+}
+.filter-group-goods-return{
+  flex-direction: column;
+  gap: 8px;
+  @media (min-width: 1005px) {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+.card-goodsReturn-item {
+  width: 60%;
+  @media (min-width: 725px) {
+    width: 100%;
+  }
+}
+
+.table-checkquantity {
+  .table-quantity {
+    .ant-table-thead .ant-table-cell {
+      border-width: none !important;
+    }
+  }
+}
+.list-return-product {
+  .ant-list-items {
+    @apply grid grid-cols-1 w-2/3 mx-auto gap-5 sm:grid-cols-3 sm:w-full md:grid-cols-3;
+  }
+
+  .ant-spin-nested-loading {
+    @apply !text-center;
+  }
+}
+
+.infinite-scroll-component {
+  overflow: inherit !important;
+}
+
+.store-filter-orderManagement-return{
+  margin-right: 0;
+  margin-top: 6px;
+  width: 100%;
+  @media (min-width: 428px) {
+      margin-right: 24px;
+      margin-top: 6px;
+  }
+  @media (min-width: 640px) {
+      margin-right: 14px;
+      margin-top: 0;
+  }
+  @media (max-width: 1283px) {
+    margin-left: 12px;
+    @media (max-width: 637px) {
+      margin-left: 24px;
+    }
+}
+}
+.supplier-filter-orderManagement{
+  margin-top: 6px;
+  width: 100%;
+  @media (min-width: 428px) {
+      margin-top: 6px;
+  }
+  @media (min-width: 640px) {
+      margin-top: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 5px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.filter-group-orderManagement{
+  flex-direction: column;
+  gap: 6px;
+  @media (min-width: 1283px) {
+      flex-direction: row;
+      gap: 0;
+  }
+}
+// .good-returns-wrapper {
+//   @media (max-width: 863px) {
+//     justify-content: center;
+//   }
+// }
+
+.table-return .intro-x>div:first-child {
+  @apply block xl:flex !items-start;
+}

@@ -1,0 +1,328 @@
+.create-store-btn {
+  button {
+    @apply bg-teal-900 !w-[140px] !mt-0 h-11 !text-sm !ml-0 hover:bg-teal-700;
+  }
+}
+
+.edit-store-btn {
+  button {
+    @apply bg-teal-900 !w-[130px] !mt-0 h-11 !text-sm !ml-0 hover:bg-teal-700;
+  }
+}
+
+.form-attribute {
+  .bg-blue-500 {
+    @apply bg-teal-900;
+  }
+
+  .bg-blue-400:hover {
+    @apply bg-teal-500;
+  }
+}
+
+.form-product-detail {
+  .ant-picker {
+    @apply w-full;
+  }
+}
+
+.ant-tabs-nav {
+  @apply !mb-0;
+
+  .ant-tabs-nav-wrap {
+    @apply bg-gray-100;
+
+    .ant-tabs-tab {
+      @apply !ml-0 p-0;
+
+      .ant-tabs-tab-btn {
+        @apply !text-teal-900 font-semibold px-5 py-3 sm:text-xl text-sm;
+      }
+    }
+
+    .ant-tabs-tab-active {
+      @apply bg-white rounded-tl-xl rounded-tr-xl font-bold;
+    }
+
+    .ant-tabs-ink-bar {
+      @apply bg-transparent;
+    }
+  }
+}
+
+.ant-modal-footer {
+  .justify-end {
+    @apply justify-center;
+
+    .bg-blue-100 {
+      @apply bg-transparent border border-teal-900 w-32 h-11 hover:text-teal-900;
+    }
+
+    .inline-flex {
+      @apply bg-teal-900 border-teal-900 hover:bg-teal-700 !w-32 !h-11 text-center justify-center;
+    }
+  }
+}
+
+// .ant-form-item-control-input-content .ant-input>input:disabled,
+// textarea:disabled {
+//   color: rgba(0, 0, 0, 0.25);
+// }
+
+.ant-tabs-tab {
+  opacity: 0.8;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+  opacity: 1;
+}
+
+.ant-tabs-tab {
+  opacity: 0.8;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+  opacity: 1;
+}
+
+.table-store {
+  .data-table.intro-x > div {
+    @apply items-baseline;
+  }
+}
+
+.store-wrapper {
+  input:not([disabled]),
+  textarea:not([disabled]) {
+    @apply border-gray-200 bg-white text-black;
+  }
+
+  .ant-select-selector {
+    @apply !border-gray-200;
+  }
+
+  .form-information {
+    .ant-form .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+      content: '  *' !important;
+    }
+
+    .ant-form-item-label {
+      label {
+        @apply text-base font-normal;
+      }
+    }
+  }
+
+  .form-address-required {
+    .ant-form .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+      @apply hidden;
+    }
+
+    label[title='Ghi chú'] {
+      @apply !text-base;
+    }
+  }
+
+  .ant-form-item-control-input-content .ant-input > input:read-only,
+  .ant-form-item-control-input-content .ant-input > textarea:read-only {
+    color: rgba(0, 0, 0, 0.25);
+    background: #f3f4f6;
+    @apply border-gray-200;
+    //  border-color: rgb(229 231 235) !important;
+  }
+
+  .ant-form-item-control-input-content textarea:read-only {
+    color: rgba(0, 0, 0, 0.25);
+    background: #f3f4f6;
+    @apply border-gray-200;
+    // border-color: rgb(229 231 235) !important;
+  }
+
+  .ant-form-item-control-input-content .ant-input > input:read-only:focus,
+  .ant-form-item-control-input-content .ant-input > textarea:read-only:focus {
+    box-shadow: none;
+  }
+
+  .ant-tabs-tab {
+    opacity: 0.8;
+  }
+
+  .ant-tabs-tab.ant-tabs-tab-active {
+    opacity: 1;
+  }
+
+  // input:not([read-only]),
+  // textarea:not([read-only]) {
+  //   background: white;
+  //   border-color: #9ca3af;
+  // }
+}
+
+.store-date-picker {
+  .ant-picker {
+    @apply bg-white w-40 h-11;
+  }
+}
+
+.productStoreDetail .ant-modal-header {
+  display: none;
+}
+
+.productStoreDetail .ant-modal-body {
+  padding: 17px 24px;
+}
+
+.productStoreDetail .ant-modal-footer {
+  border-top: none;
+}
+
+.order-detail {
+  .ant-table-thead tr th.ant-table-cell {
+    @apply !bg-white !text-gray-700 font-bold;
+  }
+
+  .ant-table-tbody > tr.ant-table-row.ant-table-row-level-0:nth-child(even) > td {
+    @apply !bg-gray-100;
+  }
+
+  .ant-table-tbody > tr.ant-table-row.ant-table-row-level-0:nth-child(even):hover > td {
+    @apply !bg-gray-100;
+  }
+
+  .ant-table-tbody > tr.ant-table-row.ant-table-row:nth-child(odd):hover > td {
+    @apply !bg-white;
+  }
+
+  .ant-table-tbody > tr.ant-table-row {
+    &:nth-of-type(odd) > td {
+      @apply !bg-white;
+    }
+  }
+}
+
+.ant-table-tbody tr td {
+  @apply !border-b-0;
+}
+
+.ant-dropdown-trigger:hover {
+  color: unset;
+  background: #000;
+}
+
+ul.ant-dropdown-menu {
+  bottom: -20px;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.ant-dropdown-menu-title-content {
+  @apply text-gray-400 text-base font-normal;
+}
+
+ul.ant-dropdown-menu .ant-dropdown-menu-item-selected .ant-dropdown-menu-title-content {
+  @apply bg-gray-100 text-teal-900 text-base font-semibold;
+}
+
+ul.ant-dropdown-menu .ant-dropdown-menu-item-selected {
+  @apply bg-gray-100 rounded-lg;
+}
+
+.ant-dropdown-menu-item:last-child {
+  padding: 8px 10px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.ant-dropdown-menu-item:first-child {
+  padding: 8px 10px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.ant-dropdown-menu-item:hover {
+  @apply rounded-lg bg-white text-teal-900;
+}
+
+.ant-picker {
+  background: white;
+}
+
+.productStoreDetail .ant-modal-header {
+  display: none;
+}
+
+.productStoreDetail .ant-modal-body {
+  padding: 17px 24px;
+}
+
+.productStoreDetail .ant-modal-footer {
+  border-top: none;
+}
+
+.detail-order .ant-table-thead tr th.ant-table-cell {
+  @apply !bg-white !text-gray-700;
+}
+
+.detail-order .ant-table-tbody > tr.ant-table-row.ant-table-row-level-0:nth-child(even) > td {
+  @apply !bg-gray-100;
+}
+
+.detail-order .ant-table-tbody > tr.ant-table-row.ant-table-row-level-0:nth-child(even):hover > td {
+  @apply !bg-gray-100;
+}
+
+.detail-order .ant-table-tbody > tr.ant-table-row.ant-table-row:nth-child(odd):hover > td {
+  @apply !bg-white;
+}
+
+.detail-order .ant-table-tbody > tr.ant-table-row {
+  &:nth-of-type(odd) > td {
+    @apply !bg-white;
+  }
+}
+
+.hiddenScroll {
+  .ant-table-body {
+    overflow-y: auto !important;
+  }
+}
+
+.search-container {
+  @apply relative;
+
+  .ant-input-group-addon {
+    @apply hidden;
+  }
+
+  .ant-input-suffix {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+
+    .ant-input-clear-icon-hidden {
+      visibility: hidden;
+    }
+  }
+  .ant-input-affix-wrapper {
+    background: #fff;
+    padding: 0;
+
+    .ant-input {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      height: 40px;
+      background: #fff;
+      width: 100%;
+      padding-left: 10px;
+      font-size: 14px;
+    }
+  }
+}
+
+.search-container.search-product {
+  &.manager_order {
+    .ant-input-affix-wrapper {
+      .ant-input {
+        padding-left: 37px;
+      }
+    }
+  }
+}

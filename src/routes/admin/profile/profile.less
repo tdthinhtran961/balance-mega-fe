@@ -1,0 +1,169 @@
+.submit-btn {
+  button {
+    @apply px-4 bg-teal-900 ml-4 w-auto !mt-0;
+  }
+}
+.form-attribute {
+  .bg-blue-500 {
+    @apply bg-teal-900;
+  }
+  .bg-blue-400:hover {
+    @apply bg-teal-500;
+  }
+}
+.form-product-detail {
+  .ant-picker {
+    @apply w-full;
+  }
+}
+
+.profile .ant-tabs-nav {
+  @apply !mb-0;
+  .ant-tabs-nav-wrap {
+    @apply !bg-transparent;
+    .ant-tabs-tab-btn {
+      @apply !text-teal-900 px-6 py-2 text-xl;
+    }
+  }
+}
+
+.profile .ant-tabs-nav-wrap {
+  @apply !bg-transparent;
+  .ant-tabs-tab {
+    @apply !ml-0 p-0;
+
+    .ant-tabs-tab-btn {
+      @apply !text-gray-500 font-semibold px-5 py-3 text-xl;
+    }
+  }
+  .ant-tabs-tab-active {
+    @apply !bg-white rounded-tl-xl rounded-tr-xl font-bold;
+  }
+  .ant-tabs-ink-bar {
+    @apply !bg-transparent;
+    height: 3px !important;
+  }
+}
+
+.profile .ant-tabs-nav-wrap {
+  @apply !bg-transparent;
+  .ant-tabs-tab.ant-tabs-tab-active {
+    @apply !ml-0 p-0;
+
+    .ant-tabs-tab-btn {
+      @apply !text-green-700 font-semibold px-5 py-3 text-xl;
+    }
+  }
+  .ant-tabs-tab-active {
+    @apply !bg-white rounded-tl-xl rounded-tr-xl font-bold;
+  }
+  .ant-tabs-ink-bar {
+    @apply !bg-transparent;
+    height: 3px !important;
+  }
+}
+
+.profile .ant-tabs-content-holder {
+  @apply !bg-white rounded-tl-none rounded-xl;
+}
+
+.profile .ant-tabs-tab-btn {
+  @apply !text-lg;
+}
+
+.profile .info .ant-form-item-label > label {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 24px !important;
+}
+
+.profile .address .ant-form-item-label > label {
+  @apply text-sm;
+  font-weight: 400 !important;
+}
+
+.profile .info input {
+  font-size: 16px !important;
+  line-height: 24px !important;
+}
+
+.profile .address input {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
+label[title='Ghi chú'] {
+  @apply !text-base;
+}
+
+.profile .address textarea {
+  @apply !text-base;
+}
+
+.ant-picker-suffix {
+  color: transparent !important;
+}
+.ant-picker-input > input {
+  color: #9ca3af;
+}
+.ant-form-item-control-input-content .ant-input > input:read-only,
+.ant-form-item-control-input-content .ant-input > textarea:read-only {
+  color: rgba(0, 0, 0, 0.25);
+  background: #f3f4f6;
+}
+.ant-tabs-tab {
+  opacity: 0.8 !important;
+}
+.ant-tabs-tab.ant-tabs-tab-active {
+  opacity: 1 !important;
+}
+input:not([readonly]),
+textarea:not([readonly]) {
+  background: white;
+  border-color: #9ca3af;
+}
+#idTable_input_search {
+  width: calc((100vw - 20rem) / 3) !important;
+}
+.ant-picker.ant-picker-focused {
+  background: white !important;
+}
+.ant-picker {
+  background: white !important;
+}
+// .ant-input {
+//   background: transparent !important;
+// }
+
+.profile .ant-tabs-ink-bar::after {
+  @apply !bg-green-700;
+  content: ' ';
+  position: absolute !important;
+  left: 50% !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  height: 4px !important;
+  width: 80% !important;
+  transform: translateX(-50%) !important;
+}
+
+// input:not([disabled]),
+// textarea:not([disabled]) {
+//   background-color: white !important;
+// }
+
+input[disabled],
+textarea[disabled] {
+  color: rgba(0, 0, 0, 0.25) !important;
+}
+
+.profile .ant-input {
+  @apply bg-transparent;
+}
+
+.user-detail-general-form{
+  align-items: center;
+  @media (min-width: 1024px) {
+    align-items: unset;
+  }
+}

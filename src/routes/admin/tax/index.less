@@ -1,0 +1,79 @@
+.tax-display .tax-select .ant-select-selector {
+  @apply h-11;
+}
+
+.modalFormTax {
+  button.btn-save:disabled {
+    @apply !bg-gray-600;
+  }
+
+  label[title='Thuế suất (%)'] {
+    &::after {
+      content: '*' !important;
+      display: contents;
+      --tw-text-opacity: 1;
+      color: rgb(239 68 68 / var(--tw-text-opacity));
+    }
+  }
+
+  input,
+  textarea {
+    @apply border border-gray-200 bg-white;
+  }
+
+  .ant-modal-header {
+    @apply border-b-0 pl-9 pb-2;
+  }
+
+  .ant-modal-title {
+    h3 {
+      @apply text-2xl font-bold;
+    }
+  }
+
+  .ant-form-item-label {
+    label {
+      @apply text-base font-normal;
+    }
+  }
+
+  .ant-modal-close {
+    svg {
+      @apply text-2xl;
+    }
+  }
+
+  .ant-modal-footer {
+    @apply bg-gray-100;
+
+    div {
+      @apply justify-center;
+
+      .btn-cancel {
+        @apply w-32 h-11 border border-teal-900 text-teal-900 bg-white;
+      }
+
+      .btn-save {
+        @apply w-32 h-11 border text-white bg-teal-900 justify-center;
+      }
+    }
+  }
+
+  .ant-modal-body {
+    @apply pl-9 pr-9 pb-10;
+  }
+
+  #taxRate {
+    text-align: left !important;
+  }
+
+  #taxRate:hover {
+    &::placeholder {
+      @apply !text-gray-600;
+    }
+  }
+}
+
+.table-tax .intro-x > div:first-child {
+  @apply block lg:flex items-start;
+}

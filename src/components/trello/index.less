@@ -1,0 +1,25 @@
+.move-drag {
+  @apply cursor-move;
+}
+.drag-vertical {
+  > .smooth-dnd-draggable-wrapper {
+    @apply drop-shadow mb-2;
+
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+}
+.drag-horizontal.smooth-dnd-container.horizontal {
+  @apply w-full flex;
+
+  > .smooth-dnd-draggable-wrapper {
+    @apply flex flex-row items-start;
+  }
+  > div {
+    @apply p-1 w-1/4;
+    .group-card {
+      @apply rounded w-full;
+    }
+  }
+}

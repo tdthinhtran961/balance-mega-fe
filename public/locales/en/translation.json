@@ -1,0 +1,197 @@
+{
+  "components": {
+    "calendar": {
+      "more": "more"
+    },
+    "datatable": {
+      "pleaseEnterValueToSearch": "Search",
+      "reset": "Reset",
+      "search": "Search",
+      "areYouSureWant": "Are you sure want delete ?",
+      "cancel": "Cancel",
+      "ok": "Ok"
+    },
+    "form": {
+      "ruleRequired": "This is a required field!",
+      "ruleEmail": "Please enter a valid email address!",
+      "ruleUsername": "Username contains no special characters, only letters and numbers!",
+      "ruleMinLength": "Please enter at least {{min}} characters!",
+      "ruleMaxLength": "Please enter maximum {{max}} characters!",
+      "ruleMinNumberLength": "Please enter at least {{min}} number characters!",
+      "ruleMaxNumberLength": "Please enter maximum {{max}} number characters!",
+      "ruleMin": "Please enter minimum {{min}} number!",
+      "ruleMax": "Please enter maximum {{max}} number!",
+      "ruleMaxSize": "You can only upload up to {{max}}mb!",
+      "only text": "Please enter only text!",
+      "only number": "Please enter only number!",
+      "rulePassword": "Password must contain at least one uppercase letter and one number!",
+      "confirm": "Confirm",
+      "ruleConfirmPassword": "Two passwords that you enter is inconsistent!",
+      "incorrectPathFormat": "Incorrect path format",
+      "Enter": "Enter",
+      "Upload": "Upload",
+      "modal": {
+        "save": "Save",
+        "cancel": "Cancel"
+      }
+    },
+    "media-management": {
+      "filename": "File name",
+      "fileSize": "File size",
+      "lastModified": "Last modified",
+      "detail": "Detail",
+      "areYouSure": "Are you sure you want to delete?",
+      "mediaManagement": "Media Management",
+      "filesOnSystem": "Files on system",
+      "addFiles": "Add files",
+      "multiFiles": "Multi files",
+      "createFolder": "Create folder",
+      "uploadFile": "Upload file",
+      "moveUpLevel": "Move up a level",
+      "outsideLink": "Outside link",
+      "save": "Save",
+      "nameFolder": "Name folder",
+      "onlyLettersAndDigitsAllowed": "Only letters and digits allowed"
+    },
+    "message": {
+      "Success": "Thành công",
+      "Fail": "Thất bại",
+      "Close": "Đóng",
+      "Ok": "Đồng ý"
+    }
+  },
+  "titles": {
+    "Reset Password": "Reset Password",
+    "Login": "Login",
+    "Register": "Register",
+    "Manage": "Manage",
+    "Chat": "Chat",
+    "Search": "Search",
+    "Dashboard": "Dashboard",
+    "User": "User",
+    "Supplier": "Supplier",
+    "OrderManagement": "Order Management",
+    "OrderDetail": "Order Detail",
+    "OrderEdit": "Order Edit",
+    "Store": "Store",
+    "ContractManagement": "Contract Management",
+    "Revenue": "Revenue",
+    "Cart": "Cart",
+    "SalesCart": "Cart",
+    "InputProduct": "Input Product",
+    "ConnectManagement": "Connect Management",
+    "RequestDetail": "Request Detail",
+    "Connect": "Connect",
+    "Contract": "Contract",
+    "SampleContractBetweenStoreNSupplier": "Sample Contract Between Store And Supplier",
+    "ContractDetailBetweenStoreNSupplier": "Contract Detail Between Store And Supplier",
+    "DiscountDetail": "Discount Detail",
+    "Profile": "Profile",
+    "SupplierInfo": "Supplier Information",
+    "Discount": "Discount",
+    "SupplierContract": "Contract",
+    "StoreInfo": "Store Information",
+    "RevenueByProduct": "Revenue By Product",
+    "RevenueByOrder": "Revenue By Order",
+    "InventoryManagement": "Inventory Management",
+    "Category": "Category",
+    "PromotionalGoods": "Promotional Goods",
+    "Tax": "Thuế",
+    "PromotionOrderDetail": "Detail Promotion Order",
+    "DisposalGoods": "Disposal Goods",
+    "DisposalDetail": "Disposal Detail",
+    "GoodReturn": "Good return",
+    "DisposalGoodsCreate": "Disposal Goods Create",
+    "DisposalGoodsDetail": "Disposal Goods Detail",
+    "DisposalGoodsEdit": "Disposal Goods Edit",
+    "DisposalGoodsAdmin": "Disposal Goods",
+    "DisposalDetailAdmin": "Disposal Detail",
+    "ManageReturnGoods": "ReturnGoods",
+    "ManageReturnGoodsDetail": "ReturnGoodsDetail",
+    "SupplierManagementByStore": "Supplier Management By Store",
+    "BranchManagement": "Branch Management",
+    "ImportGoodsNonBal": "Import Goods From Non-Balance Suppliers",
+    "ImportGoodsNonBalCreate": "Import Goods From Non-Balance Suppliers Create",
+    "ImportGoodsNonBalDetail": "Import Goods From Non-Balance Suppliers Detail",
+    "ImportGoodsNonBalEdit": "Import Goods From Non-Balance Suppliers Edit",
+    "GoodTransfer": "GoodTransfer",
+    "GoodTransferAdmin": "GoodTransfer",
+    "GoodReceive": "GoodReceive",
+    "GoodTransferAdminDetail": "GoodTransferDetail",
+    "StoreManageUser": "Store Manages Users",
+    "StoreManageUserAdd": "Store Adds User",
+    "StoreManageUserEdit": "Store Edits User",
+    "StoreManageUserDetail": "Store Manage User Detail",
+    "ListOfStock": "List of Stock",
+    "ExportImportExist": "Export Import Exist",
+    "VoucherManagement": "Voucher Management",
+    "VoucherManagementCreate": "Voucher Create",
+    "VoucherManagementEdit": "Voucher Create",
+    "InventoryCheck": "Inventory Check",
+    "RevenueManagementStore": "Store Revenue",
+    "RevenueManagementSupplier": "Supplier Revenue",
+    "RevenueManagementDiscount": "Supplier discount",
+    "GeneralConfiguration": "General Configuration",
+    "SalesManagementCustomer": "Customer"
+  },
+  "columns": {
+    "auth": {
+      "login": {
+        "Username": "Username",
+        "Enter Username": "Enter Username",
+        "Enter Password": "Enter Password",
+        "password": "Password",
+        "remember": "Remember Me",
+        "New password": "New password",
+        "Enter new password": "Enter new password"
+      }
+    },
+    "admin": {
+      "columnAdmin": {}
+    }
+  },
+  "layout": {
+    "footer": "Copyright ©{{year}} ARI Technology Co ., JSC. All rights reserved."
+  },
+  "routes": {
+    "auth": {
+      "login": {
+        "title": "Sign In",
+        "subTitle": "Enter your details to login to your account",
+        "Log In": "Log In",
+        "Forgot Password": "Forgot Password",
+        "Confirm Password": "Confirm Password",
+        "Reset password": "Reset Password"
+      }
+    },
+    "admin": {
+      "Layout": {
+        "Search": "Search",
+        "English": "English",
+        "Vietnam": "Vietnamese",
+        "Available": "Available",
+        "Account Setting": "Account Setting",
+        "Sign out": "Sign out",
+        "Mark all as read": "Mark all as read",
+        "Setting": "Setting",
+        "Notifications": "Notifications",
+        "See All": "See All",
+        "Add": "Add new",
+        "Edit": "Edit",
+        "Delete": "Delete"
+      },
+      "dashboard": {}
+    }
+  },
+  "constants": {
+    "approveStatus": {
+      "ALL": "All",
+      "APPROVED": "Approved",
+      "WAITING_APPROVE": "Waiting Approve",
+      "REJECTED": "Rejected",
+      "OUT_OF_STOCK": "Out of stock",
+      "STOP_SELLING": "Stop selling",
+      "CANCELLED": "Cancelled"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+version: '3'
+services:          
+    balance-stag-sv:
+        build: 
+            context : .
+            args:
+                ENV: staging 
+
+        container_name: balance-stag-container
+        restart: always
+        ports:
+            - "8880:80"

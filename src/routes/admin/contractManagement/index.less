@@ -1,0 +1,96 @@
+.submit-btn {
+  button {
+    @apply px-4 bg-teal-900 ml-4 w-36 !mt-0;
+  }
+}
+.form-attribute {
+  .bg-blue-500 {
+    @apply bg-teal-900;
+  }
+  .bg-blue-400:hover {
+    @apply bg-teal-500;
+  }
+}
+.form-product-detail {
+  .ant-picker {
+    @apply w-full;
+  }
+}
+
+.ant-tabs-nav {
+  @apply !mb-0;
+  .ant-tabs-nav-wrap {
+    @apply bg-gray-100;
+    .ant-tabs-tab {
+      @apply !ml-0 p-0;
+
+      .ant-tabs-tab-btn {
+        @apply !text-teal-900 font-semibold px-5 py-3 text-xl;
+      }
+    }
+    .ant-tabs-tab-active {
+      @apply bg-white rounded-tl-xl rounded-tr-xl font-bold;
+    }
+    .ant-tabs-ink-bar {
+      @apply bg-transparent;
+    }
+  }
+}
+
+.request .ant-modal-content .ant-modal-footer {
+  background-color: #f3f4f6 !important;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.request .ant-modal-content .ant-modal-header {
+  border-bottom: none;
+}
+
+.request .ant-modal-content .ant-modal-header .ant-modal-title .title {
+  @apply text-xl text-teal-900 font-bold;
+}
+
+.detailCol {
+  width: 150px;
+}
+
+.detail .ant-modal-content .ant-modal-header .ant-modal-title .title,
+.detailSupplier .ant-modal-content .ant-modal-header .ant-modal-title .title,
+.refuse .ant-modal-content .ant-modal-header .ant-modal-title .title,
+.addSupplier .ant-modal-content .ant-modal-header .ant-modal-title .title {
+  @apply text-xl text-teal-900 font-semibold;
+}
+
+.detail .ant-modal-content .ant-modal-header {
+  border-bottom: none;
+}
+
+.detail .ant-modal-content .ant-modal-footer {
+  border-top: none;
+}
+
+.detailSupplier .ant-modal-content .ant-modal-header {
+  padding-bottom: 5px;
+  padding-left: 15px;
+  border-bottom: none;
+}
+
+.detailSupplier .ant-modal-content .ant-modal-body {
+  padding-top: 0px;
+}
+
+.detailImage {
+  @apply object-cover rounded-xl shadow-md;
+  width: 18%;
+  aspect-ratio: 1 / 1;
+}
+
+.detailSupplier .buttonGroup,
+.addSupplier .buttonGroup {
+  justify-content: space-between !important;
+}
+
+.ant-modal.addSupplier {
+  width: 1100px !important;
+}

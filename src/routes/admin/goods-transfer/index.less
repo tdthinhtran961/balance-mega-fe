@@ -1,0 +1,434 @@
+.good-transfer {
+  .ant-table-content .ant-table-tbody > tr.ant-table-row:nth-of-type(odd) > td {
+    @apply !bg-white;
+  }
+
+  .ant-table-row-level-0 td:first-child,
+  .ant-table-row-level-0 td:last-child {
+    @apply !rounded-none;
+  }
+
+  thead tr th.ant-table-cell {
+    // border-bottom: 1px solid #D1D5DB !important;
+    @apply !font-normal text-sm border-b !border-b-gray-300;
+  }
+
+  .ant-table-tbody tr td {
+    @apply border-b !border-b-gray-300 !text-gray-700;
+  }
+
+  .table-disposal-goods {
+    .ant-table-thead tr th {
+      @apply !font-semibold !text-gray-700;
+    }
+  }
+
+  #importedAt {
+    @apply !text-gray-500;
+  }
+
+  .ant-input-number-input {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 100% !important;
+    width: 70px;
+    height: 36px;
+    overflow: hidden;
+    text-align: right;
+  }
+
+  .ant-input-number-handler-wrap {
+    display: none;
+  }
+
+  .ant-input-number {
+    border: 0;
+    border-radius: 10px;
+  }
+
+  .ant-input-number:focus,
+  .ant-input-number-focused {
+    border: 0;
+    box-shadow: none;
+    border-right-width: 0;
+    outline: 0;
+  }
+
+  .disposal-group-button {
+    flex-direction: column-reverse;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 574px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: unset;
+    }
+  }
+
+  .disposal-group-button-edit {
+    flex-direction: column-reverse;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .disposal-right-button-group {
+    flex-direction: column-reverse;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 574px) {
+      flex-direction: row;
+      justify-content: unset;
+      align-items: unset;
+      // gap: 0;
+    }
+  }
+}
+
+.form-attribute {
+  .bg-blue-500 {
+    @apply bg-teal-900;
+  }
+
+  .bg-blue-400:hover {
+    @apply bg-teal-500;
+  }
+}
+
+.form-product-detail {
+  .ant-picker {
+    @apply w-full;
+  }
+}
+
+.ant-tabs-nav {
+  @apply !mb-0;
+
+  .ant-tabs-nav-wrap {
+    @apply bg-gray-100;
+
+    .ant-tabs-tab {
+      @apply !ml-0 p-0;
+
+      .ant-tabs-tab-btn {
+        @apply !text-teal-900 font-semibold px-5 py-3 text-xl;
+      }
+    }
+
+    .ant-tabs-tab-active {
+      @apply bg-white rounded-tl-xl rounded-tr-xl font-bold;
+    }
+
+    .ant-tabs-ink-bar {
+      @apply bg-transparent;
+    }
+  }
+
+  .ant-empty-description {
+    text-align: center;
+  }
+}
+
+.list-disposal-product {
+  .ant-list-items {
+    @apply grid grid-cols-1 w-2/3 mx-auto gap-5 sm:grid-cols-3 sm:w-full md:grid-cols-3;
+  }
+
+  .ant-spin-nested-loading {
+    @apply !text-center;
+  }
+}
+
+.ant-tabs-tab {
+  opacity: 0.8;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+  opacity: 1;
+}
+
+.ant-tabs-tab {
+  opacity: 0.8;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+  opacity: 1;
+}
+
+.table-store {
+  @media only screen and (max-width: 46.1875em) {
+    .ant-table table {
+      width: 1000px !important;
+    }
+  }
+}
+
+.store-wrapper {
+  .ant-switch {
+    @apply bg-gray-400;
+  }
+
+  .ant-switch-checked {
+    @apply !bg-green-600;
+  }
+
+  input:not([disabled]),
+  textarea:not([disabled]) {
+    @apply border-gray-200 bg-white text-black;
+  }
+
+  .ant-select-selector {
+    @apply !border-gray-200;
+  }
+
+  .form-information {
+    .ant-form .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+      content: '  *' !important;
+    }
+
+    .ant-form-item-label {
+      label {
+        @apply text-base font-normal;
+      }
+    }
+  }
+
+  .form-address-required {
+    .ant-form .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+      @apply hidden;
+    }
+
+    label[title='Ghi chú'] {
+      @apply !text-base;
+    }
+  }
+
+  .ant-form-item-control-input-content .ant-input > input:read-only,
+  .ant-form-item-control-input-content .ant-input > textarea:read-only {
+    color: rgba(0, 0, 0, 0.25);
+    background: #f3f4f6;
+    @apply border-gray-200;
+    //  border-color: rgb(229 231 235) !important;
+  }
+
+  .ant-form-item-control-input-content textarea:read-only {
+    color: rgba(0, 0, 0, 0.25);
+    background: #f3f4f6;
+    @apply border-gray-200;
+    // border-color: rgb(229 231 235) !important;
+  }
+
+  .ant-form-item-control-input-content .ant-input > input:read-only:focus,
+  .ant-form-item-control-input-content .ant-input > textarea:read-only:focus {
+    box-shadow: none;
+  }
+
+  .ant-tabs-tab {
+    opacity: 0.8;
+  }
+
+  .ant-tabs-tab.ant-tabs-tab-active {
+    opacity: 1;
+  }
+
+  // input:not([read-only]),
+  // textarea:not([read-only]) {
+  //   background: white;
+  //   border-color: #9ca3af;
+  // }
+}
+
+.store-date-picker {
+  .ant-picker {
+    @apply bg-white w-40 h-11;
+  }
+}
+
+.productStoreDetail .ant-modal-header {
+  display: none;
+}
+
+.productStoreDetail .ant-modal-body {
+  padding: 17px 24px;
+}
+
+.productStoreDetail .ant-modal-footer {
+  border-top: none;
+}
+
+.order-detail {
+  .ant-table-thead tr th.ant-table-cell {
+    @apply !bg-white !text-gray-700 font-bold;
+  }
+
+  .ant-table-tbody > tr.ant-table-row.ant-table-row-level-0:nth-child(even) > td {
+    @apply !bg-gray-100;
+  }
+
+  .ant-table-tbody > tr.ant-table-row.ant-table-row-level-0:nth-child(even):hover > td {
+    @apply !bg-gray-100;
+  }
+
+  .ant-table-tbody > tr.ant-table-row.ant-table-row:nth-child(odd):hover > td {
+    @apply !bg-white;
+  }
+
+  .ant-table-tbody > tr.ant-table-row {
+    &:nth-of-type(odd) > td {
+      @apply !bg-white;
+    }
+  }
+}
+
+.ant-table-tbody tr td {
+  @apply !border-b-0;
+}
+
+.ant-dropdown-trigger:hover {
+  color: unset;
+}
+
+ul.ant-dropdown-menu {
+  bottom: -20px;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.ant-dropdown-menu-title-content {
+  @apply text-gray-400 text-base font-normal;
+}
+
+ul.ant-dropdown-menu .ant-dropdown-menu-item-selected .ant-dropdown-menu-title-content {
+  @apply bg-gray-100 text-teal-900 text-base font-semibold;
+}
+
+ul.ant-dropdown-menu .ant-dropdown-menu-item-selected {
+  @apply bg-gray-100 rounded-lg;
+}
+
+.ant-dropdown-menu-item:last-child {
+  padding: 8px 10px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.ant-dropdown-menu-item:first-child {
+  padding: 8px 10px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.ant-dropdown-menu-item:hover {
+  @apply rounded-lg bg-white text-teal-900;
+}
+
+.hiddenScroll {
+  .ant-table-body {
+    overflow-y: auto !important;
+  }
+}
+.abcdfeghik {
+  @media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+    .ant-table table {
+      width: 800px;
+    }
+  }
+}
+
+.store-filter-orderManagement {
+  margin-right: 0;
+  margin-top: 6px;
+  width: 100%;
+  @media (min-width: 428px) {
+    margin-right: 24px;
+    margin-top: 6px;
+  }
+  @media (min-width: 640px) {
+    margin-right: 14px;
+    margin-top: 0;
+  }
+}
+.supplier-filter-orderManagement {
+  margin-top: 6px;
+  width: 100%;
+  @media (min-width: 428px) {
+    margin-top: 6px;
+  }
+  @media (min-width: 640px) {
+    margin-top: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 5px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.filter-group-orderManagement-transfer {
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 1283px) {
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+.intro-x > div:first-child {
+  @apply block xl:flex items-start;
+}
+
+.table-transfer .intro-x > div:first-child {
+  @apply block xl:flex items-start;
+}
+
+.search-container {
+  @apply relative;
+
+  .ant-input-group-addon {
+    @apply hidden;
+  }
+
+  .ant-input-suffix {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+
+    .ant-input-clear-icon-hidden {
+      visibility: hidden;
+    }
+  }
+  .ant-input-affix-wrapper {
+    background: #fff;
+    padding: 0;
+
+    .ant-input {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      height: 40px;
+      background: #fff;
+      width: 100%;
+      padding-left: 10px;
+      font-size: 14px;
+    }
+  }
+}
+
+.search-container.search-product {
+  &.manager_order {
+    .ant-input-affix-wrapper {
+      .ant-input {
+        padding-left: 37px;
+      }
+    }
+  }
+}

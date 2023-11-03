@@ -1,0 +1,212 @@
+{
+  "components": {
+    "calendar": {
+      "more": "xem thêm"
+    },
+    "datatable": {
+      "pleaseEnterValueToSearch": "Tìm kiếm",
+      "reset": "Cài lại",
+      "search": "Tìm kiếm",
+      "areYouSureWant": "Bạn có chắc muốn xóa ?",
+      "cancel": "Huỷ bỏ",
+      "Ok": "Đồng ý"
+    },
+    "form": {
+      "ruleRequired": "Đây là trường bắt buộc!",
+      "ruleEmail": "Vui lòng nhập địa chỉ email hợp lệ!",
+      "ruleUsername": "Tên người dùng không chứa các ký tự đặc biệt, chỉ bao gồm chữ cái và chữ số!",
+      "ruleMinLength": "Vui lòng nhập ít nhất {{min}} ký tự!",
+      "ruleMaxLength": "Chỉ được nhập tối đa {{max}} ký tự!",
+      "ruleMinNumberLength": "Vui lòng nhập ít hơn {{min}} ký tự số!",
+      "ruleMaxNumberLength": "Vui lòng nhập tối đa phải có {{max}} ký tự số!",
+      "ruleMin": "Vui lòng nhập số {{min}} tối thiểu!",
+      "ruleMax": "Vui lòng nhập số {{max}} đối đa!",
+      "ruleMaxSize": "Bạn chỉ có thể tải lên tối đa {{max}}mb!",
+      "only text": "Vui lòng nhập chỉ nhập chữ!",
+      "only number": "Vui lòng nhập chỉ nhập số!",
+      "rulePassword": "Mật khẩu phải chứa ít nhất một chữ cái viết hoa và một số!",
+      "confirm": "Xác nhận",
+      "ruleConfirmPassword": "Hai mật khẩu bạn nhập không nhất quán!",
+      "incorrectPathFormat": "Định dạng đường dẫn không đúng",
+      "Enter": "Nhập",
+      "Upload": "Tải lên",
+      "modal": {
+        "save": "Lưu lại",
+        "cancel": "Huỷ"
+      }
+    },
+    "media-management": {
+      "filename": "Tên tệp",
+      "fileSize": "Kích thước tập tin",
+      "lastModified": "Sửa đổi lần cuối",
+      "detail": "Chi tiết",
+      "areYouSure": "Bạn có chắc chắn muốn xóa?",
+      "mediaManagement": "Quản lý phương tiện truyền thông",
+      "filesOnSystem": "Tệp trên hệ thống",
+      "addFiles": "Thêm các tập tin",
+      "multiFiles": "Nhiều tệp",
+      "createFolder": "Tạo thư mục",
+      "uploadFile": "Tải lên tệp",
+      "moveUpLevel": "Tiến lên một cấp độ",
+      "outsideLink": "Liên kết bên ngoài",
+      "save": "Lưu lại",
+      "nameFolder": "Tên thư mục",
+      "onlyLettersAndDigitsAllowed": "Chỉ cho phép các chữ cái và chữ số"
+    },
+    "message": {
+      "Success": "Thành công",
+      "Fail": "Thất bại",
+      "Close": "Đóng"
+    }
+  },
+  "titles": {
+    "Reset Password": "Đặt Lại Mật Khẩu",
+    "Forgot Password": "Quên Mật Khẩu",
+    "Send Otp": "Quên Mật Khẩu",
+    "Login": "Đăng Nhập",
+    "Register": "Đăng Ký",
+    "Manage": "Quản Lý",
+    "Chat": "Trò Chuyện",
+    "Search": "Tra Cứu Dữ Liệu",
+    "Dashboard": "Tra Cứu Dữ Liệu",
+    "User": "Quản Lý Người Dùng",
+    "Supplier": "Quản Lý Nhà Cung Cấp",
+    "OrderManagement": "Quản Lý Đơn Hàng",
+    "OrderDetail": "Chi Tiết Đơn Hàng",
+    "OrderEdit": "Chỉnh Sửa Đơn Hàng",
+    "Category": "Quản Lý Hàng Hóa",
+    "Store": "Quản Lý Cửa Hàng",
+    "ContractManagement": "Quản Lý Hợp Đồng",
+    "Revenue": "Doanh Thu",
+    "Cart": "Giỏ Hàng",
+    "SalesCart": "Giỏ Hàng",
+    "InputProduct": "Nhập Hàng",
+    "RequestDetail": "Chi Tiết Kết Nối",
+    "ConnectManagement": "Quản Lý Kết Nối",
+    "Connect": "Quản Lý Kết Nối",
+    "Contract": "Quản Lý Hợp Đồng",
+    "SampleContractBetweenStoreNSupplier": "Hợp Đồng Mẫu Giữa Cửa Hàng Và Nhà Cung Cấp",
+    "ContractDetailBetweenStoreNSupplier": "Hợp Đồng Chi Tiết Giữa Cửa Hàng Và Nhà Cung Cấp",
+    "DiscountDetail": "Chi Tiết Chiết Khấu",
+    "Profile": "Thông Tin Cá Nhân",
+    "SupplierInfo": "Thông Tin NCC",
+    "Discount": "Chiết Khấu",
+    "SupplierContract": "Hợp Đồng",
+    "StoreInfo": "Thông Tin Cửa Hàng",
+    "RevenueByProduct": "Doanh Thu Theo SP",
+    "RevenueByOrder": "Doanh Thu Theo ĐH",
+    "InventoryManagement": "Quản Lý Kho",
+    "PromotionalGoods": "Nhập Hàng Trực Tiếp",
+    "Tax": "Thuế",
+    "PromotionOrderDetail": "Chi Tiết Đơn Hàng Khuyến Mãi",
+    "DisposalGoods": "Hủy Hàng",
+    "DisposalDetail": "Chi Tiết Hủy Hàng",
+    "GoodReturn": "Trả Hàng",
+    "DisposalGoodsCreate": "Tạo Hủy Hàng",
+    "DisposalGoodsDetail": "Chi Tiết Hủy Hàng",
+    "DisposalGoodsEdit": "Chỉnh Sửa Hủy Hàng",
+    "DisposalGoodsAdmin": "Hủy Hàng",
+    "DisposalDetailAdmin": "Chi Tiết Hủy Hàng",
+    "ManageReturnGoods": "Quản Lý Trả Hàng",
+    "ManageReturnGoodsDetail": "Chi Tiết Trả Hàng",
+    "SupplierManagementByStore": "Quản Lý NCC Bởi Cửa Hàng",
+    "BranchManagement": "Quản Lý Cửa Hàng",
+    "ImportGoodsNonBal": "Nhập Hàng Non-Balance",
+    "ImportGoodsNonBalCreate": "Tạo Nhập Hàng Non-Balance",
+    "ImportGoodsNonBalDetail": "Chi Tiết Nhập Hàng Non-Balance",
+    "ImportGoodsNonBalEdit": "Chỉnh Sửa Nhập Hàng Non-Balance",
+    "GoodTransfer": "Chuyển Hàng",
+    "GoodTransferAdmin": "Chuyển Hàng",
+    "GoodReceive": "Hàng Nhận",
+    "GoodTransferAdminDetail": "Chi Tiết Chuyển Hàng",
+    "StoreManageUser": "Cửa Hàng Quản Lý Người Dùng",
+    "StoreManageUserAdd": "Cửa Hàng Thêm Người Dùng",
+    "StoreManageUserEdit": "Cửa Hàng Chỉnh Sửa Người Dùng",
+    "StoreManageUserDetail": "Cửa Hàng Xem Chi Tiết Người Dùng",
+    "ListOfStock": "Danh Sách Phiếu Kho",
+    "ExportImportExist": "Xuất Nhập Tồn",
+    "VoucherManagement": "Quản lý vouchers",
+    "VoucherManagementCreate": "Thêm voucher",
+    "VoucherManagementEdit": "Chỉnh sửa voucher",
+    "InventoryCheck": "Kiểm kê",
+    "RevenueManagementStore": "Doanh thu cửa hàng",
+    "RevenueManagementSupplier": "Doanh thu nhà cung cấp",
+    "RevenueManagementDiscount": "Chiết khấu NCC",
+    "GeneralConfiguration": "Cấu hình chung",
+    "SalesManagementCustomer": "Khách hàng"
+  },
+  "columns": {
+    "auth": {
+      "login": {
+        "Username": "Tên đăng nhập",
+        "Enter Username": "Nhập tên đăng nhập",
+        "Enter Password": "Nhập mật khẩu",
+        "password": "Mật khẩu",
+        "remember": "Ghi nhớ",
+        "New password": "Mật khẩu mới",
+        "Enter new password": "Nhập mật khẩu mới",
+        "Confirm Password": "Xác nhận mật khẩu"
+      },
+      "reset-password": {
+        "Recovery Email": "Email khôi phục",
+        "Enter Recovery Email": "Nhập Email khôi phục"
+      }
+    },
+    "admin": {
+      "columnAdmin": {}
+    }
+  },
+  "layout": {
+    "footer": "Copyright ©{{year}} ARI Technology Co ., JSC. All rights reserved."
+  },
+  "routes": {
+    "auth": {
+      "login": {
+        "title": "Đăng nhập",
+        "subTitle": "Nhập thông tin chi tiết của bạn để đăng nhập vào tài khoản của bạn",
+        "Log In": "Đăng nhập",
+        "Forgot Password": "Quên mật khẩu",
+        "Confirm Password": "Xác nhận mật khẩu",
+        "Reset Password": "Xác nhận",
+        "New password": "Mật khẩu mới",
+        "Enter new password": "Nhập mật khẩu mới"
+      },
+      "reset-password": {
+        "Recovery Email": "Email khôi phục",
+        "Enter Recovery Email": "Email khôi phục",
+        "title": "Đặt lại mật khẩu",
+        "Submit": "Gửi đi",
+        "Back To Login": "Quay lại đăng nhập"
+      }
+    },
+    "admin": {
+      "Layout": {
+        "Search": "Tìm kiếm",
+        "English": "Tiếng Anh",
+        "Vietnam": "Tiếng Việt",
+        "Available": "Có sẵn",
+        "Account Setting": "Thiết lập tài khoản",
+        "Sign out": "Đăng xuất",
+        "Mark all as read": "Đánh dấu tất cả là đã đọc",
+        "Setting": "Cài đặt",
+        "Notifications": "Thông báo",
+        "See All": "Xem tất cả",
+        "Add": "Thêm mới",
+        "Edit": "Sửa",
+        "Delete": "Xóa"
+      },
+      "dashboard": {}
+    }
+  },
+  "constants": {
+    "approveStatus": {
+      "ALL": "Tất cả",
+      "APPROVED": "Đang bán",
+      "WAITING_APPROVE": "Chờ xác nhận",
+      "REJECTED": "Từ chối",
+      "OUT_OF_STOCK": "Hết hàng",
+      "STOP_SELLING": "Ngừng bán",
+      "CANCELLED": "Đã hủy"
+    }
+  }
+}

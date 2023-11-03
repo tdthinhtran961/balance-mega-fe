@@ -1,0 +1,462 @@
+.create-store-btn {
+  button {
+    @apply bg-teal-900 border border-teal-900 sm:!w-[140px] w-[60%] !mt-0 h-11 !text-sm !ml-0 sm:mr-0 mr-12 hover:bg-teal-700;
+  }
+}
+
+.edit-store-btn {
+  button {
+    @apply bg-teal-900 border border-teal-900 sm:!w-[130px] w-[57%] h-11 !text-sm sm:!ml-0 ml-10 sm:z-10 hover:bg-teal-700;
+  }
+}
+.edit-branch-btn {
+  button {
+    @apply bg-teal-900 border border-teal-900 sm:!w-[130px] w-[57%] mt-2  h-11 !text-sm sm:!ml-0 ml-10 sm:z-10 hover:bg-teal-700;
+  }
+}
+.edit-wstore-branch-btn {
+  button {
+    @apply bg-teal-900 border border-teal-900 sm:!w-[130px] w-[57%] mt-7  h-11 !text-sm sm:!ml-0 ml-10 sm:z-10 hover:bg-teal-700;
+  }
+}
+
+.form-attribute {
+  .bg-blue-500 {
+    @apply bg-teal-900;
+  }
+
+  .bg-blue-400:hover {
+    @apply bg-teal-500;
+  }
+}
+
+.form-product-detail {
+  .ant-picker {
+    @apply w-full;
+  }
+}
+
+.ant-tabs-nav {
+  @apply !mb-0;
+
+  .ant-tabs-nav-wrap {
+    @apply bg-gray-100;
+
+    .ant-tabs-tab {
+      @apply !ml-0 p-0;
+
+      .ant-tabs-tab-btn {
+        @apply !text-teal-900 font-semibold px-5 py-3 text-xl;
+      }
+    }
+
+    .ant-tabs-tab-active {
+      @apply bg-white rounded-tl-xl rounded-tr-xl font-bold;
+    }
+
+    .ant-tabs-ink-bar {
+      @apply bg-transparent;
+    }
+  }
+}
+
+.data-inventory-management-table {
+  .ant-table-thead {
+    .ant-table-cell {
+      @apply border-0;
+      .ant-table-filter-column {
+        .ant-dropdown-trigger.ant-table-filter-trigger {
+          @apply flex;
+        }
+      }
+    }
+    .ant-table-cell::before {
+      @apply hidden;
+    }
+    tr {
+      th {
+        @apply !bg-white;
+        .ant-dropdown-trigger {
+          @apply block;
+        }
+        // .ant-table-column-sorter {
+        //   @apply block;
+        // }
+      }
+    }
+  }
+  .ant-table-content {
+    table {
+      @media (max-width: 46.1875em) {
+        width: 1500px;
+      }
+      @media (min-width: 46.1875em) and (max-width: 1022px) {
+        width: 1500px;
+      }
+      @media (min-width: 1022px) and (max-width: 1199px) {
+        width: 100%;
+      }
+      @media (min-width: 1593px) {
+        width: 100%;
+      }
+      // @media (min-width: 1500px) {
+      //   width: 100%;
+      // }
+    }
+  }
+}
+
+.ant-dropdown {
+  .ant-table-filter-dropdown {
+    @apply rounded-lg;
+  }
+  .ant-table-filter-dropdown > div {
+    @apply p-2;
+  }
+}
+
+.ant-modal-footer {
+  .justify-end {
+    @apply justify-center;
+
+    .bg-blue-100 {
+      @apply bg-transparent border border-teal-900 w-32 h-11;
+    }
+
+    .inline-flex {
+      @apply bg-teal-900 border-teal-900 hover:bg-teal-700 !w-32 !h-11 text-center justify-center;
+    }
+  }
+}
+
+// .ant-form-item-control-input-content .ant-input>input:disabled,
+// textarea:disabled {
+//   color: rgba(0, 0, 0, 0.25);
+// }
+
+.ant-tabs-tab {
+  opacity: 0.8;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+  opacity: 1;
+}
+
+.ant-tabs-tab {
+  opacity: 0.8;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+  opacity: 1;
+}
+
+.table-store {
+  @media only screen and (max-width: 46.1875em) {
+    .ant-table table {
+      width: 1000px !important;
+    }
+  }
+}
+
+.store-wrapper {
+  .ant-switch {
+    @apply bg-gray-400;
+  }
+
+  .ant-switch-checked {
+    @apply !bg-green-600;
+  }
+
+  input:not([disabled]),
+  textarea:not([disabled]) {
+    @apply border-gray-200 bg-white text-black;
+  }
+
+  .ant-select-selector {
+    @apply !border-gray-200;
+  }
+
+  .form-information {
+    .ant-form .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+      content: '  *' !important;
+    }
+
+    .ant-form-item-label {
+      label {
+        @apply text-base font-normal;
+      }
+
+      label[title='Tỉnh/Thành phố']::after {
+        @apply hidden;
+      }
+      label[title='Quận/Huyện']::after {
+        @apply hidden;
+      }
+      label[title='Phường/Xã']::after {
+        @apply hidden;
+      }
+      label[title='Địa chỉ cụ thể']::after {
+        @apply hidden;
+      }
+    }
+  }
+
+  .form-address-required {
+    .ant-form .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+      @apply hidden;
+    }
+
+    label[title='Ghi chú'] {
+      @apply !text-base;
+    }
+  }
+
+  .ant-form-item-control-input-content .ant-input > input:read-only,
+  .ant-form-item-control-input-content .ant-input > textarea:read-only {
+    color: rgba(0, 0, 0, 0.25);
+    background: #f3f4f6;
+    @apply border-gray-200;
+    //  border-color: rgb(229 231 235) !important;
+  }
+
+  .ant-form-item-control-input-content textarea:read-only {
+    color: rgba(0, 0, 0, 0.25);
+    background: #f3f4f6;
+    @apply border-gray-200;
+    // border-color: rgb(229 231 235) !important;
+  }
+
+  .ant-form-item-control-input-content .ant-input > input:read-only:focus,
+  .ant-form-item-control-input-content .ant-input > textarea:read-only:focus {
+    box-shadow: none;
+  }
+
+  .ant-tabs-tab {
+    opacity: 0.8;
+  }
+
+  .ant-tabs-tab.ant-tabs-tab-active {
+    opacity: 1;
+  }
+
+  // input:not([read-only]),
+  // textarea:not([read-only]) {
+  //   background: white;
+  //   border-color: #9ca3af;
+  // }
+}
+
+.store-date-picker {
+  .ant-picker {
+    @apply bg-white w-40 h-11;
+  }
+}
+
+.productStoreDetail .ant-modal-header {
+  display: none;
+}
+
+.productStoreDetail .ant-modal-body {
+  padding: 17px 24px;
+}
+
+.productStoreDetail .ant-modal-footer {
+  border-top: none;
+}
+
+.order-detail {
+  .ant-table-thead tr th.ant-table-cell {
+    @apply !bg-white !text-gray-700 font-bold;
+  }
+
+  .ant-table-tbody > tr.ant-table-row.ant-table-row-level-0:nth-child(even) > td {
+    @apply !bg-gray-100;
+  }
+
+  .ant-table-tbody > tr.ant-table-row.ant-table-row-level-0:nth-child(even):hover > td {
+    @apply !bg-gray-100;
+  }
+
+  .ant-table-tbody > tr.ant-table-row.ant-table-row:nth-child(odd):hover > td {
+    @apply !bg-white;
+  }
+
+  .ant-table-tbody > tr.ant-table-row {
+    &:nth-of-type(odd) > td {
+      @apply !bg-white;
+    }
+  }
+}
+
+.ant-table-tbody tr td {
+  @apply !border-b-0;
+}
+
+.ant-dropdown-trigger:hover {
+  color: unset;
+}
+
+ul.ant-dropdown-menu {
+  bottom: -20px;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.ant-dropdown-menu-title-content {
+  @apply text-gray-400 text-base font-normal;
+}
+
+ul.ant-dropdown-menu .ant-dropdown-menu-item-selected .ant-dropdown-menu-title-content {
+  @apply bg-gray-100 text-teal-900 text-base font-semibold;
+}
+
+ul.ant-dropdown-menu .ant-dropdown-menu-item-selected {
+  @apply bg-gray-100 rounded-lg;
+}
+
+.ant-dropdown-menu-item:last-child {
+  padding: 8px 10px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.ant-dropdown-menu-item:first-child {
+  padding: 8px 10px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.ant-dropdown-menu-item:hover {
+  @apply rounded-lg bg-white text-teal-900;
+}
+
+.ant-picker {
+  background: white;
+}
+
+.productStoreDetail .ant-modal-header {
+  display: none;
+}
+
+.productStoreDetail .ant-modal-body {
+  padding: 17px 24px;
+}
+
+.productStoreDetail .ant-modal-footer {
+  border-top: none;
+}
+
+.detail-order .ant-table-thead tr th.ant-table-cell {
+  @apply !bg-white !text-gray-700;
+}
+
+.detail-order .ant-table-tbody > tr.ant-table-row.ant-table-row-level-0:nth-child(even) > td {
+  @apply !bg-gray-100;
+}
+
+.detail-order .ant-table-tbody > tr.ant-table-row.ant-table-row-level-0:nth-child(even):hover > td {
+  @apply !bg-gray-100;
+}
+
+.detail-order .ant-table-tbody > tr.ant-table-row.ant-table-row:nth-child(odd):hover > td {
+  @apply !bg-white;
+}
+
+.detail-order .ant-table-tbody > tr.ant-table-row {
+  &:nth-of-type(odd) > td {
+    @apply !bg-white;
+  }
+}
+
+.hiddenScroll {
+  .ant-table-body {
+    overflow-y: auto !important;
+  }
+}
+
+@media only screen and (max-width: 46.1875em) {
+  .flexRowReverse {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+.revenueByOrder .intro-x > div:first-child {
+  @apply block xl:flex items-start;
+}
+
+.revenueByProduct .intro-x > div:first-child {
+  @apply block xl:flex items-start;
+  // @apply block 2xl:flex items-start;
+}
+
+.table-store .intro-x > div:first-child {
+  @apply block lg:flex items-start;
+}
+
+.select-category input:disabled {
+  @apply !opacity-50;
+}
+
+.login:disabled{
+  background:  #fff;
+  color: #ccc;
+  cursor: no-drop;
+}
+.search-container {
+  @apply relative;
+
+  .ant-input-group-addon {
+    @apply hidden;
+  }
+
+  .ant-input-suffix {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+
+    .ant-input-clear-icon-hidden {
+      visibility: hidden;
+    }
+  }
+
+  .ant-input-affix-wrapper {
+    // height: 45px;
+    // border: 1px solid #e5e7eb !important;
+    // border-radius: 10px !important;
+    background: #fff;
+    padding: 0;
+    // overflow: hidden;
+
+    .ant-input {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      height: 40px;
+      background: #fff;
+      width: 100%;
+      padding-left: 10px;
+      font-size: 14px;
+    }
+  }
+}
+.search-container.search-product {
+  .ant-input-affix-wrapper {
+    .ant-input {
+      padding-left: 55px;
+    }
+  }
+  &.manager_order {
+    .ant-input-affix-wrapper {
+      .ant-input {
+        padding-left: 37px;
+      }
+    }
+  }
+}
+.list-add-products {
+  .ant-list-items {
+    @apply grid grid-cols-1 w-2/3 mx-auto gap-5 sm:grid-cols-3 sm:w-full md:grid-cols-3;
+  }
+
+  .ant-spin-nested-loading {
+    @apply !text-center;
+  }
+}

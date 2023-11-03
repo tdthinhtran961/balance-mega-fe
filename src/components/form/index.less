@@ -1,0 +1,65 @@
+@import "drag";
+
+.ant-input {
+@apply border-gray-300;
+  &:focus {
+  @apply border-blue-500 shadow shadow-blue-500/30 outline-0;
+  }
+}
+
+.ant-select {
+  &:not(.ant-select-customize-input) .ant-select-selector {
+  @apply rounded-xl border px-4 border-solid border-gray-300 ~'py-1.5 min-h-[2.5rem]' items-center;
+  }
+  &-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector{
+  @apply border-blue-300;
+  }
+  &-single{
+    &.ant-select-show-arrow .ant-select-selection-item {
+      @apply pr-4;
+    }
+    &:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
+      @apply h-9;
+    }
+  }
+  &-clear .anticon{
+    @apply relative ~'-top-0.5';
+  }
+  &-multiple .ant-select-selection-item {
+    @apply bg-blue-100 rounded-xl py-1 px-2 my-0 -ml-1 ~'min-h-[1.88rem]';
+  }
+}
+.ant-form {
+
+  input[type='file'] { @apply hidden; }
+
+  .ant-form-item {
+    @apply mb-4;
+    &-label {
+      @apply overflow-visible pr-2;
+      > label.ant-form-item-required:not(.ant-form-item-required-mark-optional){
+        &::before { content: none; }
+        &::after {
+          content: '*'!important;
+          @apply contents text-red-500;
+        }
+      }
+    }
+  }
+  .ant-checkbox-inner,
+  .ant-checkbox-checked:after{
+    @apply w-5 h-5 rounded border-2;
+  }
+  .ant-checkbox { @apply top-1; }
+  .table .ant-form-item {
+    @apply mb-0;
+    .ant-input,
+    .ant-picker,
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+      @apply border-0 rounded-none;
+    }
+  }
+}
+.ant-picker {
+  @apply rounded-xl border px-4 border-solid border-gray-300 h-10 items-center w-full;
+}

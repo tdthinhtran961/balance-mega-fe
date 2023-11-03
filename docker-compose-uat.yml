@@ -1,0 +1,12 @@
+version: '3'
+services:          
+    balance-uat-mega-sv:
+        build: 
+            context : .
+            args:
+                ENV: uat 
+
+        container_name: balance-uat-mega-container
+        restart: always
+        ports:
+            - "8881:80"

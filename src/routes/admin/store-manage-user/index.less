@@ -1,0 +1,26 @@
+.store-manage-user {
+  .permission-management {
+    .ant-row.ant-form-item {
+      @apply flex-row justify-between items-baseline;
+      .ant-col.ant-form-item-control {
+        @apply border border-solid border-gray-300 py-3 pr-4 pl-2 rounded-xl;
+      }
+    }
+    .ant-form-item-control-input-content {
+      .ant-checkbox-group {
+        @apply flex flex-col;
+        .ant-checkbox {
+          order: 1;
+        }
+        .ant-checkbox-wrapper.ant-checkbox-wrapper-in-form-item.ant-checkbox-group-item {
+          @apply justify-between mr-0;
+        }
+      }
+    }
+  }
+  .store-manage-user-above-form {
+    textarea {
+      @apply bg-white;
+    }
+  }
+}
