@@ -80,7 +80,7 @@ const Component = ({
         type: 'next_all',
         disabled: lastPageDisabled({ pageIndex, lastIndex }),
       };
-      set_lastNumber(lastIndex); // Edit by Thinh
+      set_lastNumber(lastIndex);
       return [prevAllItem, prevItem, ...listOfPage, nextItem, nextAllItem];
     };
     const generatePage = (start, end) => {

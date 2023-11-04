@@ -6,7 +6,6 @@ import { DatePicker, Space, Select, Form, Table } from 'antd';
 import { PromotionalGoodsService } from 'services/PromotionalGoods';
 import { CategoryService } from 'services/category';
 import { reFormatDateString, formatCurrency, formatDateString, getFormattedDate } from 'utils';
-import moment from 'moment';
 import classNames from 'classnames';
 import * as XLSX from 'xlsx';
 import dayjs from 'dayjs';
@@ -69,8 +68,8 @@ const ProductRevenue = ({ tabKey }) => {
   });
   const [headExcelInfo, setHeadExcelInfo] = useState({
     fullTextSearch: '',
-    dateFrom: moment(getFormattedDate(firstDay)).format('YYYY-MM-DD') + ' 00:00:00',
-    dateTo: moment(new Date()).format('YYYY-MM-DD') + ' 23:59:59',
+    dateFrom: dayjs(getFormattedDate(firstDay)).format('YYYY-MM-DD') + ' 00:00:00',
+    dateTo: dayjs(new Date()).format('YYYY-MM-DD') + ' 23:59:59',
     status: '',
     supplierName: '',
     categoryMain: '',
@@ -243,14 +242,14 @@ const ProductRevenue = ({ tabKey }) => {
     XLSX.utils.sheet_add_aoa(ws, [['Chọn nhà cung cấp:', headExcelInfo.supplierName]], { origin: 'G3' });
     XLSX.utils.sheet_add_aoa(
       ws,
-      [['Từ ngày', headExcelInfo.dateFrom && moment(headExcelInfo.dateFrom).format('DD/MM/YYYY')]],
+      [['Từ ngày', headExcelInfo.dateFrom && dayjs(headExcelInfo.dateFrom).format('DD/MM/YYYY')]],
       {
         origin: 'A5',
       },
     );
     XLSX.utils.sheet_add_aoa(
       ws,
-      [['Đến ngày', headExcelInfo.dateTo && moment(headExcelInfo.dateTo).format('DD/MM/YYYY')]],
+      [['Đến ngày', headExcelInfo.dateTo && dayjs(headExcelInfo.dateTo).format('DD/MM/YYYY')]],
       { origin: 'D5' },
     );
     XLSX.utils.sheet_add_aoa(ws, [['Danh mục chính:', headExcelInfo.categoryMain]], { origin: 'A7' });
@@ -467,7 +466,7 @@ const ProductRevenue = ({ tabKey }) => {
                 format="DD/MM/YYYY"
                 defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
-                  // return moment().add(-1, 'days') <= current;
+                  // return dayjs().add(-1, 'days') <= current;
                   return current && current.valueOf() > Date.now();
                 }}
                 size={'middle'}
@@ -483,7 +482,7 @@ const ProductRevenue = ({ tabKey }) => {
                 format="DD/MM/YYYY"
                 defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
-                  // return moment().add(-1, 'days') <= current;
+                  // return dayjs().add(-1, 'days') <= current;
                   return current && current.valueOf() > Date.now();
                 }}
                 className={'sm:ml-0 datepicker-to-input'}

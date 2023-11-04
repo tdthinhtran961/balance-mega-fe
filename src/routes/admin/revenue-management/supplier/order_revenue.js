@@ -7,7 +7,6 @@ import { HookDataTable } from 'hooks';
 import { DatePicker, Space, Select, Table } from 'antd';
 import { reFormatDateString, formatCurrency, formatDateString, getFormattedDate, routerLinks } from 'utils';
 import { useNavigate } from 'react-router';
-import moment from 'moment';
 import * as XLSX from 'xlsx';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
@@ -68,8 +67,8 @@ const OrderRevenue = ({ tabKey }) => {
   });
   const [headExcelInfo, setHeadExcelInfo] = useState({
     fullTextSearch: '',
-    dateFrom: moment(getFormattedDate(firstDay)).format('YYYY-MM-DD') + ' 00:00:00',
-    dateTo: moment(new Date()).format('YYYY-MM-DD') + ' 23:59:59',
+    dateFrom: dayjs(getFormattedDate(firstDay)).format('YYYY-MM-DD') + ' 00:00:00',
+    dateTo: dayjs(new Date()).format('YYYY-MM-DD') + ' 23:59:59',
     type: filterTypeName,
     supplierName: filterSupplierName,
     storeName: filterStoreName,
@@ -131,7 +130,7 @@ const OrderRevenue = ({ tabKey }) => {
     }
     setShowValidateFilter(false);
     dispatch({ type: 'FROM', dateFrom: dateString });
-    const formattedDate = moment(dateString, 'DD/MM/YYYY').format('YYYY-MM-DD HH:mm:ss');
+    const formattedDate = dayjs(dateString, 'DD/MM/YYYY').format('YYYY-MM-DD HH:mm:ss');
     if (formattedDate !== '//') {
       initDate = {
         dateFrom: formattedDate,
@@ -262,14 +261,14 @@ const OrderRevenue = ({ tabKey }) => {
     XLSX.utils.sheet_add_aoa(ws, [['Chọn cửa hàng:', headExcelInfo.storeName || filterStoreName || storeName?.name]], { origin: 'J3' });
     XLSX.utils.sheet_add_aoa(
       ws,
-      [['Từ ngày', headExcelInfo.dateFrom && moment(headExcelInfo.dateFrom).format('DD/MM/YYYY')]],
+      [['Từ ngày', headExcelInfo.dateFrom && dayjs(headExcelInfo.dateFrom).format('DD/MM/YYYY')]],
       {
         origin: 'A5',
       },
     );
     XLSX.utils.sheet_add_aoa(
       ws,
-      [['Đến ngày', headExcelInfo.dateTo && moment(headExcelInfo.dateTo).format('DD/MM/YYYY')]],
+      [['Đến ngày', headExcelInfo.dateTo && dayjs(headExcelInfo.dateTo).format('DD/MM/YYYY')]],
       { origin: 'D5' },
     );
 
