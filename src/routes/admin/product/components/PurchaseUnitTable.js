@@ -312,9 +312,12 @@ const PurchaseUnitTable = ({ data, setData, pageType, setDataSource, purchasePri
   
   const listUnit1 = useRef();
   
-  useEffect(async () => {
-    const { data } = await Unit.getUnitChild();
-    listUnit1.current = data;
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await Unit.getUnitChild();
+      listUnit1.current = data;
+    }
+    fetchData()
   }, [])
   
   const units = useRef([])

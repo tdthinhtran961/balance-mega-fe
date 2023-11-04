@@ -322,6 +322,7 @@ const CategoryTable = ({
         bordered
         dataSource={dataSource}
         columns={columns}
+        rowKey="id"
         pagination={false}
         scroll={{
           y: 400,

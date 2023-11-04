@@ -1,8 +1,9 @@
-import moment from 'moment';
+// import moment from 'moment';
 import { DatePicker, Space } from 'antd';
 import { getFormattedDate, formatDateString } from 'utils';
 import React from 'react';
 import './index.less';
+import dayjs from 'dayjs';
 
 const DateFilterBar = ({ onChangeDateFrom, onChangeDateTo, showValidateFilter, firstDay, date }) => {
   return (
@@ -14,7 +15,7 @@ const DateFilterBar = ({ onChangeDateFrom, onChangeDateTo, showValidateFilter, f
             <DatePicker
               onChange={onChangeDateFrom}
               format="DD/MM/YYYY"
-              defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+              defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
               disabledDate={(current) => {
                 return current && current.valueOf() > Date.now();
               }}
@@ -36,7 +37,7 @@ const DateFilterBar = ({ onChangeDateFrom, onChangeDateTo, showValidateFilter, f
           <DatePicker
             onChange={onChangeDateTo}
             format="DD/MM/YYYY"
-            defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+            defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
             disabledDate={(current) => {
               return current && current.valueOf() > Date.now();
             }}

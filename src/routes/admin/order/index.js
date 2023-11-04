@@ -8,7 +8,6 @@ import { useAuth } from 'global';
 import TabData from './tabPaneComponents/tabHook';
 import OrderManagementViewAd from './orderManagementViewAd';
 import { OrdersService } from 'services/order';
-const { TabPane } = Tabs;
 const Page = () => {
   const location = useLocation();
   const pageType =
@@ -67,6 +66,72 @@ const Page = () => {
     navigate(`${routerLinks('OrderManagement')}?tab=${key}`);
   };
 
+  const tabs = [
+    {
+      label:`Chờ xác nhận ${
+      counter?.WAITING_APPROVED || counter?.WAITING_APPROVED === 0
+        ? `(` + counter?.WAITING_APPROVED + ')'
+        : ''
+      }`,
+      key:"1",
+      statusName:"WAITING_APPROVED"
+    },
+    {
+      label:`${
+        user?.userInfor?.roleCode === 'OWNER_STORE'
+          ? `Chờ lấy hàng ${
+              counter?.WAITING_PICKUP || counter?.WAITING_PICKUP === 0
+                ? `(` + counter?.WAITING_PICKUP + ')'
+                : ''
+            }`
+          : (user?.userInfor?.roleCode === 'OWNER_SUPPLIER' || user?.userInfor?.roleCode === 'DISTRIBUTOR')
+          ? `Chờ lấy hàng ${
+              counter?.WAITING_PICKUP || counter?.WAITING_PICKUP === 0
+                ? `(` + counter?.WAITING_PICKUP + ')'
+                : ''
+            }`
+          : `Chờ lấy hàng ${
+              counter?.WAITING_PICKUP || counter?.WAITING_PICKUP === 0
+                ? `(` + counter?.WAITING_PICKUP + ')'
+                : ''
+            }`
+      }`,
+      key:"2",
+      statusName:"WAITING_PICKUP"
+    },
+    {
+      label:`Đang giao ${
+        counter?.DELIVERY_RECEIVE || counter?.DELIVERY_RECEIVE === 0
+          ? `(` + counter?.DELIVERY_RECEIVE + ')'
+          : ''
+      }`,
+      key:"3",
+      statusName:"DELIVERY_RECEIVE"
+    },
+    {
+      label:`Đã giao ${counter?.DELIVERED || counter?.DELIVERED === 0 ? `(` + counter?.DELIVERED + ')' : ''}`,
+      key:"4",
+      statusName:"DELIVERED"
+    },
+    {
+      label:`Đã hủy ${counter?.CANCELLED || counter?.CANCELLED === 0 ? `(` + counter?.CANCELLED + ')' : ''}`,
+      key:"5",
+      statusName:"CANCELLED"
+    }
+  ];
+  
+  const items = tabs.map((tab) => ({
+    label: `${tab.label}`,
+    key: tab.key,
+    children: (
+      <div className="bg-white w-full px-6 rounded-xl rounded-tl-none pt-6 pb-4 relative">
+        {+tabKey === Number(tab.key) && (
+          <TabData statusName={tab.statusName} tabKey={tabKey} navigateDetail={navigateDetail} />
+        )}
+      </div>
+    ),
+  }));
+
   return (
     <Fragment>
       {roleCode !== 'ADMIN' ? (
@@ -78,80 +143,8 @@ const Page = () => {
             onChange={handleChangeTab}
             className="mt-5"
             activeKey={String(tabKey)}
+            items={items}
           >
-            <TabPane
-              tab={`Chờ xác nhận ${
-                counter?.WAITING_APPROVED || counter?.WAITING_APPROVED === 0
-                  ? `(` + counter?.WAITING_APPROVED + ')'
-                  : ''
-              }`}
-              key="1"
-              className=""
-            >
-              <div className="bg-white w-full px-6 rounded-xl rounded-tl-none pt-6 pb-4 relative">
-                {+tabKey === 1 && (
-                  <TabData statusName="WAITING_APPROVED" tabKey={tabKey} navigateDetail={navigateDetail} />
-                )}
-              </div>
-            </TabPane>
-            <TabPane
-              tab={`${
-                user?.userInfor?.roleCode === 'OWNER_STORE'
-                  ? `Chờ lấy hàng ${
-                      counter?.WAITING_PICKUP || counter?.WAITING_PICKUP === 0
-                        ? `(` + counter?.WAITING_PICKUP + ')'
-                        : ''
-                    }`
-                  : (user?.userInfor?.roleCode === 'OWNER_SUPPLIER' || user?.userInfor?.roleCode === 'DISTRIBUTOR')
-                  ? `Chờ lấy hàng ${
-                      counter?.WAITING_PICKUP || counter?.WAITING_PICKUP === 0
-                        ? `(` + counter?.WAITING_PICKUP + ')'
-                        : ''
-                    }`
-                  : `Chờ lấy hàng ${
-                      counter?.WAITING_PICKUP || counter?.WAITING_PICKUP === 0
-                        ? `(` + counter?.WAITING_PICKUP + ')'
-                        : ''
-                    }`
-              }`}
-              key="2"
-            >
-              <div className="bg-white w-full px-6 rounded-xl pt-6 pb-4 relative min-h-[calc(100vh-60px-64px-1.25rem)]">
-                {+tabKey === 2 && (
-                  <TabData statusName="WAITING_PICKUP" tabKey={tabKey} navigateDetail={navigateDetail} />
-                )}
-              </div>
-            </TabPane>
-            <TabPane
-              tab={`Đang giao ${
-                counter?.DELIVERY_RECEIVE || counter?.DELIVERY_RECEIVE === 0
-                  ? `(` + counter?.DELIVERY_RECEIVE + ')'
-                  : ''
-              }`}
-              key="3"
-            >
-              <div className="bg-white w-full px-6 rounded-xl pt-6 pb-4 relative min-h-[calc(100vh-60px-64px-1.25rem)]">
-                {+tabKey === 3 && (
-                  <TabData statusName="DELIVERY_RECEIVE" tabKey={tabKey} navigateDetail={navigateDetail} />
-                )}
-              </div>
-            </TabPane>
-            <TabPane
-              tab={`Đã giao ${counter?.DELIVERED || counter?.DELIVERED === 0 ? `(` + counter?.DELIVERED + ')' : ''}`}
-              key="4"
-            >
-              <div className="bg-white w-full px-6 rounded-xl pt-6 pb-4 relative min-h-[calc(100vh-60px-64px-1.25rem)]">
-                {+tabKey === 4 && <TabData statusName="DELIVERED" tabKey={tabKey} navigateDetail={navigateDetail} />}
-              </div>
-            </TabPane>
-            <TabPane
-              tab={`Đã hủy ${counter?.CANCELLED || counter?.CANCELLED === 0 ? `(` + counter?.CANCELLED + ')' : ''}`}
-              key="5"
-            >
-              <div className="bg-white w-full px-6 rounded-xl pt-6 pb-4 relative min-h-[calc(100vh-60px-64px-1.25rem)]">
-                {+tabKey === 5 && <TabData statusName="CANCELLED" tabKey={tabKey} navigateDetail={navigateDetail} />}
-              </div>
-            </TabPane>
           </Tabs>
         </div>
       ) : (

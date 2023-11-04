@@ -12,6 +12,7 @@ import { StoreService } from 'services/store';
 import { GoodTransferService } from 'services/GoodTransfer';
 import { ReportService } from 'services/report';
 import { formatCurrency, routerLinks, formatDateString, reFormatDateString } from 'utils';
+import dayjs from 'dayjs';
 
 let date = new Date();
 let firstDay = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
@@ -564,7 +565,7 @@ const Page = () => {
                       className="!bg-white"
                       onChange={onChangeDateFrom}
                       format="DD/MM/YYYY"
-                      defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                      defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                       disabledDate={(current) => {
                         return current && current.valueOf() > Date.now();
                       }}
@@ -590,7 +591,7 @@ const Page = () => {
                 <DatePicker
                   onChange={onChangeDateTo}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}

@@ -10,6 +10,7 @@ import moment from 'moment';
 import * as XLSX from 'xlsx';
 import classNames from 'classnames';
 import './index.less';
+import dayjs from 'dayjs';
 const { Option } = Select;
 let date = new Date();
 let firstDay = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
@@ -71,15 +72,18 @@ const OrderRevenue = ({ tabKey, subOrgId }) => {
     totalOderCancel: 0,
   });
 
-  useEffect(async () => {
-    const storeList = await RevenueService.getStoreBySupplier(subOrgId);
-    setStoreList(storeList.data);
-    if (filterStore !== 'null' && filterStore !== null && filterStore) {
-      const value = storeList.data.find((item) => item.id === filterStore).name;
-      setFilterStoreName(value);
-    } else {
-      setFilterStoreName();
+  useEffect(() => {
+    const fetchData = async () => {
+      const storeList = await RevenueService.getStoreBySupplier(subOrgId);
+      setStoreList(storeList.data);
+      if (filterStore !== 'null' && filterStore !== null && filterStore) {
+        const value = storeList.data.find((item) => item.id === filterStore).name;
+        setFilterStoreName(value);
+      } else {
+        setFilterStoreName();
+      }
     }
+    fetchData()
   }, []);
 
   const formatCur = (value) => {
@@ -452,7 +456,7 @@ const OrderRevenue = ({ tabKey, subOrgId }) => {
                   <DatePicker
                     onChange={onChangeDateFrom}
                     format="DD/MM/YYYY"
-                    defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                    defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                     disabledDate={(current) => {
                       return current && current.valueOf() > Date.now();
                     }}
@@ -477,7 +481,7 @@ const OrderRevenue = ({ tabKey, subOrgId }) => {
                 <DatePicker
                   onChange={onChangeDateTo}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}

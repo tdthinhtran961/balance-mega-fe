@@ -170,7 +170,7 @@ const Hook = ({
     </div>
   );
   const ref = useRef();
-  // noinspection JSUnusedGlobalSymbols
+
   const getColumnSearchInput = (key) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <div className="p-1">
@@ -185,13 +185,14 @@ const Hook = ({
       </div>
     ),
     filterIcon: (filtered) => <i className="las la-lg la-search" style={{ color: filtered ? '#3699FF' : undefined }} />,
-    onFilterDropdownVisibleChange: (visible) => {
-      if (visible) {
+    onFilterDropdownOpenChange: (visible) => {
+      // console.log(3);
+      if (visible && ref.current) {
         setTimeout(() => ref.current.select());
       }
     },
   });
-  // noinspection JSUnusedGlobalSymbols
+
   const getColumnSearchRadio = (filters, key) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <Fragment>
@@ -203,7 +204,7 @@ const Hook = ({
       <i className="las la-lg la-dot-circle" style={{ color: filtered ? '#3699FF' : undefined }} />
     ),
   });
-  // noinspection JSUnusedGlobalSymbols
+
   const getColumnSearchCheckbox = (filters, key) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <Fragment>
@@ -215,7 +216,7 @@ const Hook = ({
       <i className="las la-lg la-check-square" style={{ color: filtered ? '#3699FF' : undefined }} />
     ),
   });
-  // noinspection JSUnusedGlobalSymbols
+
   const getColumnSearchDate = (key) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <Fragment>

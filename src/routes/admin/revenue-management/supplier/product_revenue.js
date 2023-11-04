@@ -9,6 +9,7 @@ import { reFormatDateString, formatCurrency, formatDateString, getFormattedDate 
 import moment from 'moment';
 import classNames from 'classnames';
 import * as XLSX from 'xlsx';
+import dayjs from 'dayjs';
 const { Option } = Select;
 const date = new Date();
 const firstDay = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
@@ -97,8 +98,9 @@ const ProductRevenue = ({ tabKey }) => {
     dispatch({ type: 'TO', dateTo: dateString });
   };
 
-  useEffect(async () => {
-    const supplierList = await PromotionalGoodsService.getSupplierListWithOrderParams({supplierType: 'BALANCE'});
+  useEffect( () => {
+    const fetchData = async () => {
+      const supplierList = await PromotionalGoodsService.getSupplierListWithOrderParams({supplierType: 'BALANCE'});
     setFilterSupplier(supplierList?.data[0]?.id);
     // setFilterSupplier(849);
     setSupplierList(supplierList.data);
@@ -106,6 +108,8 @@ const ProductRevenue = ({ tabKey }) => {
       ...prev,
       supplierName: supplierList?.data[0]?.name,
     }));
+    }
+    fetchData()
   }, []);
 
   useEffect(() => {
@@ -461,7 +465,7 @@ const ProductRevenue = ({ tabKey }) => {
               <DatePicker
                 onChange={onChangeDateFrom}
                 format="DD/MM/YYYY"
-                defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
                   // return moment().add(-1, 'days') <= current;
                   return current && current.valueOf() > Date.now();
@@ -477,7 +481,7 @@ const ProductRevenue = ({ tabKey }) => {
               <DatePicker
                 onChange={onChangeDateTo}
                 format="DD/MM/YYYY"
-                defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
                   // return moment().add(-1, 'days') <= current;
                   return current && current.valueOf() > Date.now();

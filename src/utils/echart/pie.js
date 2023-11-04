@@ -46,7 +46,7 @@ const Util = ({ id }) => {
           },
         );
       }
-      // noinspection JSUnusedGlobalSymbols
+    
       const seriesOption = [
         {
           name: '',

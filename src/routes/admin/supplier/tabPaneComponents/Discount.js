@@ -10,6 +10,7 @@ import { formatCurrency, routerLinks, reFormatDateString, formatDateString, getF
 import classNames from 'classnames';
 import { DatePicker, Select, Space, Form, Table } from 'antd';
 import * as XLSX from 'xlsx';
+import dayjs from 'dayjs';
 
 let date = new Date();
 const { Option } = Select;
@@ -122,11 +123,11 @@ const Discount = () => {
     }
   };
 
-  useEffect(async () => {
-    setHeadExcelInfo((prev) => ({
-      ...prev,
-      supplierName: idSupplier || subOrgId,
-    }));
+  useEffect(() => {
+      setHeadExcelInfo((prev) => ({
+        ...prev,
+        supplierName: idSupplier || subOrgId,
+      }));
   }, []);
 
   const formatCur = (value) => {
@@ -322,7 +323,7 @@ const Discount = () => {
                       onChange={onChangeDateFrom}
                       format="MM/YYYY"
                       picker="month"
-                      defaultValue={moment(firstDay, 'MM/YYYY')}
+                      defaultValue={dayjs(firstDay, 'MM/YYYY')}
                       disabledDate={(current) => {
                         return current && current.valueOf() > Date.now();
                       }}
@@ -349,7 +350,7 @@ const Discount = () => {
                     onChange={onChangeDateTo}
                     format="MM/YYYY"
                     picker="month"
-                    defaultValue={moment()}
+                    defaultValue={dayjs()}
                     disabledDate={(current) => {
                       return current && current.valueOf() > Date.now();
                     }}

@@ -10,7 +10,6 @@ import { useAuth } from 'global';
 import SupplierManagementInBal from './tabPanes/supplierInBal';
 import SupplierManagementNotInBal from './tabPanes/supplierNotInBal';
 
-const { TabPane } = Tabs;
 
 const Page = () => {
   const location = useLocation();
@@ -57,21 +56,33 @@ const Page = () => {
       </div>
     );
 
+    const items = [
+      {
+        tab: "Balance",
+        key: "1",
+        className: "",
+        children: (
+          <div className="bg-white w-full px-6 rounded-[10px] rounded-tl-none pt-6">
+            {Number(tabKey) === 1 && <SupplierManagementInBal />}
+          </div>
+        ),
+      },
+      {
+        tab: "Non-Balance",
+        key: "2",
+        children: (
+          <div className="bg-white w-full px-4 rounded-xl pt-5 pb-4 relative">
+            {Number(tabKey) === 2 && <SupplierManagementNotInBal />}
+          </div>
+        ),
+      },
+    ];
+
   return (
     <Fragment>
       <div className="min-h-screen store-wrapper ">
         <p className="sm:text-2xl text-xl font-bold text-teal-900 mb-6">Quản lý nhà cung cấp</p>
-        <Tabs onChange={handleChangeTab} className="mt-5" activeKey={String(tabKey)}>
-          <TabPane tab="Balance" key="1" className="">
-            <div className="bg-white w-full px-6 rounded-[10px] rounded-tl-none pt-6">
-              {+tabKey === 1 && <SupplierManagementInBal />}
-            </div>
-          </TabPane>
-          <TabPane tab="Non-Balance" key="2">
-            <div className="bg-white w-full px-4 rounded-xl pt-5 pb-4 relative">
-              {+tabKey === 2 && <SupplierManagementNotInBal />}
-            </div>
-          </TabPane>
+        <Tabs onChange={handleChangeTab} items={items} className="mt-5" activeKey={String(tabKey)}>
         </Tabs>
       </div>
     </Fragment>

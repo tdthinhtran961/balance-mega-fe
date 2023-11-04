@@ -8,6 +8,7 @@ import { useAuth } from 'global';
 import { formatCurrency, getFormattedDate, formatDateString, reFormatDateString } from 'utils';
 import moment from 'moment';
 import * as XLSX from 'xlsx';
+import dayjs from 'dayjs';
 
 const { Option } = Select;
 const date = new Date();
@@ -255,7 +256,7 @@ const Page = () => {
                 <DatePicker
                   onChange={onChangeDateFrom}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}
@@ -267,7 +268,7 @@ const Page = () => {
                 <DatePicker
                   onChange={onChangeDateTo}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}

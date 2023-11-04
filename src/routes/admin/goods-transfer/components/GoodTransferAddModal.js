@@ -38,7 +38,7 @@ const GoodTransferAddMode = ({
   };
   return (
     <Modal
-      visible={displayModal}
+      open={displayModal}
       title={false}
       centered
       onOke={() => {

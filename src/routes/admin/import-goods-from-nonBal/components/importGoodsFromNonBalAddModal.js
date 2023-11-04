@@ -46,7 +46,7 @@ const ImportGoodsFromNonBalModal = ({
     <Modal
       centered
       title={false}
-      visible={visible}
+      open={visible}
       maskClosable={false}
       closable={false}
       width={831}

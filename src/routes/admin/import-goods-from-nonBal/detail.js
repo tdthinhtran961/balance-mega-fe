@@ -985,7 +985,7 @@ const Page = () => {
                                 onChange={handleSelectDate}
                                 format="DD/MM/YYYY"
                                 className="!w-[100%] lg:!w-[60%] !bg-white !border-gray-200 !text-gray-500 "
-                                // defaultValue={moment()}
+                                // defaultValue={dayjs()}
                                 disabledDate={(current) => {
                                   // return moment().add(-1, 'days') <= current;
                                   return current && current.valueOf() > Date.now();

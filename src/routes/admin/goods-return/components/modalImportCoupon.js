@@ -7,8 +7,6 @@ import ImgNoProduct from 'assets/images/imgNoProduct.png';
 const ModalImportCoupon = ({
   visible,
   setVisible,
-  setSearch,
-  paramsReturn,
   setParamsReturn,
   setLoading,
   importCouponListModal,
@@ -30,7 +28,7 @@ const ModalImportCoupon = ({
     <Modal
       title={false}
       centered
-      visible={visible}
+      open={visible}
       width={831}
       maskClosable={false}
       closable={false}

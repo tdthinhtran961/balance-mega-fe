@@ -9,6 +9,7 @@ import { DatePicker, Space, Select, Table, Form } from 'antd';
 import { reFormatDateString, formatCurrency, formatDateString, getFormattedDate } from 'utils';
 import moment from 'moment';
 import * as XLSX from 'xlsx';
+import dayjs from 'dayjs';
 const { Option } = Select;
 
 const date = new Date();
@@ -113,27 +114,30 @@ const ProductRevenue = ({ tabKey }) => {
       dateTo: dateString,
     }));
   };
-  useEffect(async () => {
-    const storeList = await PromotionalGoodsService.getStoreListWithOrder();
-    setFilterStore(storeList?.data[0]?.id);
-    setStoreList(storeList.data);
-    setDisableSupplier(false);
-    setHeadExcelInfo((prev) => ({
-      ...prev,
-      storeName: storeList?.data[0]?.name,
-    }));
-    const supplierListBalance = await SupplierService.getListSupplierBalance({
-      page: 1,
-      perPage: 100000,
-      idSuppiler: storeList?.data[0]?.id,
-    });
-    const supplierListNonBalance = await SupplierService.getListSupplierNonBal({
-      page: 1,
-      perPage: 100000,
-      storeId: storeList?.data[0]?.id,
-      supplierType: 'NON_BALANCE',
-    });
-    setSupplierList(supplierListBalance?.data.concat(supplierListNonBalance.data));
+  useEffect(() => {
+    async function fetchData() {
+      const storeList = await PromotionalGoodsService.getStoreListWithOrder();
+      setFilterStore(storeList?.data[0]?.id);
+      setStoreList(storeList.data);
+      setDisableSupplier(false);
+      setHeadExcelInfo((prev) => ({
+        ...prev,
+        storeName: storeList?.data[0]?.name,
+      }));
+      const supplierListBalance = await SupplierService.getListSupplierBalance({
+        page: 1,
+        perPage: 100000,
+        idSuppiler: storeList?.data[0]?.id,
+      });
+      const supplierListNonBalance = await SupplierService.getListSupplierNonBal({
+        page: 1,
+        perPage: 100000,
+        storeId: storeList?.data[0]?.id,
+        supplierType: 'NON_BALANCE',
+      });
+      setSupplierList(supplierListBalance?.data.concat(supplierListNonBalance.data));
+    }
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -570,7 +574,7 @@ const ProductRevenue = ({ tabKey }) => {
               <DatePicker
                 onChange={onChangeDateFrom}
                 format="DD/MM/YYYY"
-                defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
                   return current && current.valueOf() > Date.now();
                 }}
@@ -582,7 +586,7 @@ const ProductRevenue = ({ tabKey }) => {
               <DatePicker
                 onChange={onChangeDateTo}
                 format="DD/MM/YYYY"
-                defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
                   return current && current.valueOf() > Date.now();
                 }}

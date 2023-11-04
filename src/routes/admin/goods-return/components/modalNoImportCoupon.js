@@ -20,16 +20,12 @@ const ModalNoImportCoupon = ({
   dataSearchFollowCodeProduct,
   arrMap,
   setListProduct,
-  setItemChoose,
   itemChoose,
   load,
   remainingListProductList,
   setRemainingListProductList,
   dataDelete,
-  setDataDelete,
-  setParamsReturn,
-  paramsReturn
-}) => {
+  setParamsReturn}) => {
   const [dataTempChoose, setDataTempChoose] = useState([]);
   const [checkButton, setCheckButton] = useState(false);
   const TimeOutId = useRef();
@@ -46,7 +42,7 @@ const ModalNoImportCoupon = ({
     <Modal
       title={false}
       centered
-      visible={visibleNo}
+      open={visibleNo}
       width={831}
       onCancel={() => setVisibleNo(false)}
       maskClosable={false}

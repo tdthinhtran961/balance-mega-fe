@@ -42,7 +42,7 @@ function ListImageAndFile({ dataExcel, setStep }) {
     checkValidateContent();
   }, [dataSource]);
 
-  // Edit by Thinh - Start
+  
   const [defaultImage, setDefaultImage] = useState('');
   
   /**
@@ -55,7 +55,7 @@ function ListImageAndFile({ dataExcel, setStep }) {
         setDataSource(dataSource.map((i) => ({ photos: [defaultImage], ...i })));
       });
   }, [])
-  // Edit by Thinh - End
+  
 
   return (
     <div className="min-h-screen">

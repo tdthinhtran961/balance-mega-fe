@@ -354,7 +354,7 @@ const Page = () => {
     setUnitChange(arrayProductlist?.map((e) => e?.inventoryProductUnits?.findIndex((f) => f.isDefault)));
   }, [arrayProductlist?.length]);
 
-  useEffect(async () => {
+  useEffect( () => {
     const fetchListProduct = async () => {
       if (total !== 0 && importCouponListModal?.length >= total) {
         setHasMoreImport(false);
@@ -470,20 +470,23 @@ const Page = () => {
     }
   };
 
-  useEffect(async () => {
-    if (pageType === 'edit') {
-      if (arrayProductlist.length === 0 && data?.detailProduct?.length === dataOrder?.length) {
-        await GoodsReturnService.deleteAll(idProduct);
-        await GoodsReturnService.get({ page: 1, perPage: 10, storeId });
-        window.history.go(-2);
-        // if (type === '1') {
-        //   return navigate(routerLinks('ListOfStock'));
-        // } else {
-        //   return navigate(routerLinks('GoodReturn'));
-        // }
-        // return navigate(routerLinks('GoodReturn'));
+  useEffect(() => {
+    const data = async () => {
+      if (pageType === 'edit') {
+        if (arrayProductlist.length === 0 && data?.detailProduct?.length === dataOrder?.length) {
+          await GoodsReturnService.deleteAll(idProduct);
+          await GoodsReturnService.get({ page: 1, perPage: 10, storeId });
+          window.history.go(-2);
+          // if (type === '1') {
+          //   return navigate(routerLinks('ListOfStock'));
+          // } else {
+          //   return navigate(routerLinks('GoodReturn'));
+          // }
+          // return navigate(routerLinks('GoodReturn'));
+        }
       }
     }
+    data()
   }, [pageType, data?.itemList, dataOrder?.length, arrayProductlist]);
 
   const toggleAmount = (data, type, index) => {
@@ -1629,7 +1632,7 @@ const Page = () => {
           <Modal
             title={false}
             centered
-            visible={showModalCheckQuantity}
+            open={showModalCheckQuantity}
             width={831}
             onCancel={() => SetShowModalCheckQuantity(false)}
             wrapClassName={'modal-add-good-return'}

@@ -342,7 +342,7 @@ const TableImageAndFile = ({ dataSource, setDataSource, pageType, roleCode, erro
           dataIndex: 'image',
           align: 'center',
           render: (text, record, index) => {
-                    // Edit by Thinh - start
+                    
             record?.photos.length === 0 && defaultImage !== '' && record?.photos.push(defaultImage);
             let itemPhoto = record?.photos[0] === defaultImage ? [] : record?.photos;
             let isError = false;
@@ -386,7 +386,7 @@ const TableImageAndFile = ({ dataSource, setDataSource, pageType, roleCode, erro
                       const item = newData[index];
                       newData.splice(index, 1, { ...item, photos: itemPhoto });
                       setDataSource(newData);
-                      // Edit by Thinh - end
+                      
                     }}
                   >
                     <button 

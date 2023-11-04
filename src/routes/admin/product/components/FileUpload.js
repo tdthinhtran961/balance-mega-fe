@@ -80,7 +80,7 @@ const FileUpload = ({
           <span className="text-teal-900 font-normal text-sm">Chọn tệp</span>
         </button>
       </Dragger>
-      {/* <Modal visible={previewVisible} title={previewTitle} footer={null} onCancel={handleCancel}>
+      {/* <Modal open={previewVisible} title={previewTitle} footer={null} onCancel={handleCancel}>
         <img
           alt="example"
           style={{

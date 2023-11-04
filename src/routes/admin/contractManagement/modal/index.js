@@ -89,7 +89,7 @@ const Hook = ({
         centered={true}
         width={widthModal}
         title={<h3 className="title">{title(data)}</h3>}
-        visible={isVisible}
+        open={isVisible}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={

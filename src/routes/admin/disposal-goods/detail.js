@@ -1240,7 +1240,7 @@ const Page = () => {
         centered
         // cancelText="Nhập lại"
         // okText="Đồng ý"
-        visible={visibleInfringingProducts}
+        open={visibleInfringingProducts}
         onOk={async () => {
           if (pageType === 'create' || pageType === 'edit') {
             setDisabledButton((prev) => ({ ...prev, disabledBtn: true }));

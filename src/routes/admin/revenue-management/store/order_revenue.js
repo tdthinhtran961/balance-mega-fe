@@ -7,6 +7,7 @@ import { DatePicker, Space, Select, Table } from 'antd';
 import { reFormatDateString, formatCurrency, formatDateString, getFormattedDate } from 'utils';
 import * as XLSX from 'xlsx';
 import moment from 'moment';
+import dayjs from 'dayjs';
 
 const { Option } = Select;
 const date = new Date();
@@ -77,14 +78,17 @@ const OrderRevenue = ({ tabKey }) => {
     dispatch({ type: 'TO', dateTo: dateString });
   };
 
-  useEffect(async () => {
-    const storeList = await PromotionalGoodsService.getStoreListWithOrder();
-    setFilterStore(storeList?.data[0]?.id);
-    setStoreList(storeList.data);
-    setHeadExcelInfo((prev) => ({
-      ...prev,
-      storeName: storeList?.data[0]?.name,
-    }));
+  useEffect(() => {
+    async function fetchData() {
+      const storeList = await PromotionalGoodsService.getStoreListWithOrder();
+      setFilterStore(storeList?.data[0]?.id);
+      setStoreList(storeList.data);
+      setHeadExcelInfo((prev) => ({
+        ...prev,
+        storeName: storeList?.data[0]?.name,
+      }));
+    }
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -311,7 +315,7 @@ const OrderRevenue = ({ tabKey }) => {
                 <DatePicker
                   onChange={onChangeDateFrom}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     // return moment().add(-1, 'days') <= current;
                     return current && current.valueOf() > Date.now();
@@ -324,7 +328,7 @@ const OrderRevenue = ({ tabKey }) => {
                 <DatePicker
                   onChange={onChangeDateTo}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     // return moment().add(-1, 'days') <= current;
                     return current && current.valueOf() > Date.now();

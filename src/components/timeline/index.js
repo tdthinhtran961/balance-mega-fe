@@ -148,7 +148,7 @@ const Component = ({
         : selectedColor
       : item.bgColor || primaryColor;
     const color = itemContext.resizing ? 'red' : item.color || textColor;
-    // noinspection JSUnusedGlobalSymbols
+  
     return (
       <div
         {...getItemProps({

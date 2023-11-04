@@ -227,7 +227,7 @@ const Page = () => {
         storeReceivedId: value?.nameBrand,
         supplierType,
       };
-      // Edit by Thinh - start
+      
       const listOverInventory =
         itemChoose
           .filter(
@@ -263,7 +263,7 @@ const Page = () => {
           }
         }
       }
-      // Edit by Thinh - end
+      
       return false;
     }
     if (pageType === 'edit') {
@@ -283,7 +283,7 @@ const Page = () => {
         storeReceivedId: isNumber(value?.nameBrand) ? value.nameBrand : data?.storeReceived?.id,
         supplierType,
       };
-      // Edit by Thinh - start
+      
       const listOverInventory =
         itemChoose
           .filter(
@@ -321,7 +321,7 @@ const Page = () => {
           // }
         }
       }
-      // Edit by Thinh - end
+      
       return false;
     }
   };

@@ -8,9 +8,9 @@ import { useAuth } from 'global';
 import { useLocation } from 'react-router-dom';
 import { GoodTransferService } from 'services/GoodTransfer';
 import './index.less';
-import moment from 'moment';
+// import moment from 'moment';
 import classNames from 'classnames';
-const { TabPane } = Tabs;
+import dayjs from 'dayjs';
 const { Option } = Select;
 const { Search } = Input;
 
@@ -335,7 +335,7 @@ const App = () => {
                   className="!bg-white"
                   onChange={onChangeDateFrom}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}
@@ -361,7 +361,7 @@ const App = () => {
               <DatePicker
                 onChange={onChangeDateTo}
                 format="DD/MM/YYYY"
-                defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
                   return current && current.valueOf() > Date.now();
                 }}
@@ -488,7 +488,7 @@ const App = () => {
                   className="!bg-white"
                   onChange={onChangeDateFrom}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}
@@ -514,7 +514,7 @@ const App = () => {
               <DatePicker
                 onChange={onChangeDateTo}
                 format="DD/MM/YYYY"
-                defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
                   return current && current.valueOf() > Date.now();
                 }}
@@ -545,20 +545,32 @@ const App = () => {
         break;
     }
   }, [location.search]);
+
+  const items = [
+    {
+      label:"Hàng nhập", 
+      key:"1", 
+      children: 
+        <div className="min-h-screen  bg-white relative rounded-md ">
+          <div className="bg-white pt-6 pb-10 px-6 rounded-md">       
+            {dataTableProduct()}
+          </div>
+        </div>
+    },
+    {
+      label:"Hàng chuyển", 
+      key:"2", 
+      children: 
+        <div className="min-h-screen  bg-white relative rounded-md ">
+          <div className="bg-white pt-6 pb-10 px-6 rounded-md">{dataTableProductTransfer()}</div>
+        </div>
+    },
+  ]
+
   return (
     <div className="table-category min-h-screen product-wrapper">
       <p className="text-2xl font-bold text-teal-900 mb-6">Chuyển hàng </p>
-      <Tabs activeKey={String(keyTab)} onChange={onChange} style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <TabPane tab="Hàng nhập" key="1">
-          <div className="min-h-screen  bg-white relative rounded-md ">
-            <div className="bg-white pt-6 pb-10 px-6 rounded-md">{dataTableProduct()}</div>
-          </div>
-        </TabPane>
-        <TabPane tab="Hàng chuyển" key="2">
-          <div className="min-h-screen  bg-white relative rounded-md ">
-            <div className="bg-white pt-6 pb-10 px-6 rounded-md">{dataTableProductTransfer()}</div>
-          </div>
-        </TabPane>
+      <Tabs activeKey={String(keyTab)} items={items} onChange={onChange} style={{ display: 'flex', justifyContent: 'space-between' }}>
       </Tabs>
     </div>
   );

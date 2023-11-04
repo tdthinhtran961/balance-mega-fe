@@ -11,6 +11,7 @@ import classNames from 'classnames';
 import * as XLSX from 'xlsx';
 import { DatePicker, Select, Space, Form, Table } from 'antd';
 import './index.less';
+import dayjs from 'dayjs';
 let date = new Date();
 const { Option } = Select;
 let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -125,28 +126,31 @@ const Page = () => {
     }
   };
 
-  useEffect(async () => {
-    const supplierList = await PromotionalGoodsService.getSupplierListWithOrder();
-    if (
-      filterSupplierURL !== null &&
-      filterSupplierURL !== 'null' &&
-      filterSupplierURL !== undefined &&
-      filterSupplierURL !== 'undefined'
-    ) {
-      setFilterSupplier(filterSupplierURL);
-    } else {
-      setFilterSupplier(supplierList?.data[0]?.id);
+  useEffect(() => {
+    const fetchData = async () => {
+      const supplierList = await PromotionalGoodsService.getSupplierListWithOrder();
+      if (
+        filterSupplierURL !== null &&
+        filterSupplierURL !== 'null' &&
+        filterSupplierURL !== undefined &&
+        filterSupplierURL !== 'undefined'
+      ) {
+        setFilterSupplier(filterSupplierURL);
+      } else {
+        setFilterSupplier(supplierList?.data[0]?.id);
+      }
+  
+      setSupplierList(supplierList.data);
+      if (filterSupplier !== 'null' && filterSupplier) {
+        const valueSupplier = supplierList.data.find((item) => item.id === filterSupplier).name;
+        setFilterSupplierName(valueSupplier);
+      }
+      setHeadExcelInfo((prev) => ({
+        ...prev,
+        supplierName: supplierList?.data[0]?.name,
+      }));
     }
-
-    setSupplierList(supplierList.data);
-    if (filterSupplier !== 'null' && filterSupplier) {
-      const valueSupplier = supplierList.data.find((item) => item.id === filterSupplier).name;
-      setFilterSupplierName(valueSupplier);
-    }
-    setHeadExcelInfo((prev) => ({
-      ...prev,
-      supplierName: supplierList?.data[0]?.name,
-    }));
+    fetchData()
   }, []);
 
   const formatCur = (value) => {
@@ -360,7 +364,7 @@ const Page = () => {
                         onChange={onChangeDateFrom}
                         format="MM/YYYY"
                         picker="month"
-                        defaultValue={moment(firstDay, 'MM/YYYY')}
+                        defaultValue={dayjs(firstDay)}
                         disabledDate={(current) => {
                           return current && current.valueOf() > Date.now();
                         }}
@@ -387,7 +391,7 @@ const Page = () => {
                       onChange={onChangeDateTo}
                       format="MM/YYYY"
                       picker="month"
-                      defaultValue={moment()}
+                      defaultValue={dayjs()}
                       disabledDate={(current) => {
                         return current && current.valueOf() > Date.now();
                       }}

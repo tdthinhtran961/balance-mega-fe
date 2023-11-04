@@ -59,7 +59,7 @@ const Hook = forwardRef(
         centered={true}
         width={widthModal}
         title={<h3 className="font-bold text-lg">{title(data)}</h3>}
-        visible={isVisible}
+        open={isVisible}
         onOk={handleOk}
         onCancel={handleCancel}
         wrapClassName={className}

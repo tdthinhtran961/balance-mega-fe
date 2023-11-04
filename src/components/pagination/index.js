@@ -14,12 +14,12 @@ const Component = ({
   idElement = 'pagination',
   className = 'pagination',
 
-  // Edit by Thinh - start
+  
   firstPageDisabled = ({ pageIndex }) => pageIndex === 1,
   lastPageDisabled = ({ pageIndex, lastIndex }) => pageIndex === lastIndex,
   firstPage = () => 1,
   lastPage = ({ lastIndex }) => lastIndex,
-  // Edit by Thinh - end
+  
 }) => {
   const listOfPageItem = useRef([]);
   const [ranges, setRanges] = useState([]);

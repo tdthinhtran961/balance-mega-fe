@@ -10,7 +10,6 @@ import { useAuth } from 'global';
 import Address from './components/address';
 import TabData from './components/tabHook';
 import classNames from 'classnames';
-const { TabPane } = Tabs;
 
 const Page = () => {
   const [form] = FormAnt.useForm();
@@ -375,6 +374,144 @@ const Page = () => {
         <Spin className="w-[200px]" />
       </div>
     );
+  
+    const items = [
+      {
+        label: "Thông tin cửa hàng",
+        key: "1",
+        children: (
+          <div className="bg-white w-full px-6 rounded-[10px] rounded-tl-none pt-6">
+            <Address
+              submit={pageBranch !== 'branch' ? submit : submitCreateBranch}
+              pageType={pageType}
+              form={form}
+              emailManager={emailManager}
+              data={data}
+              setManagerId={setManagerId}
+              roleCode={roleCode}
+              isHidden={isHidden}
+              setIsHidden={setIsHidden}
+              connectKioViet={connectKioViet}
+              setConnectKioViet={setConnectKioViet}
+              pageBranch={pageBranch}
+              ViewStoreBranch={ViewStoreBranch}
+              setIsCall={setIsCall}
+              isCall={isCall}
+              isMain={!!isMain}
+            />
+            {(roleCode === 'OWNER_STORE' ) && <div className="h-6"></div>}
+          </div>
+        ),
+      },
+      ...(roleCode === 'ADMIN' && pageType === 'edit' && pageBranch !== 'branch' 
+        ? [
+          {
+            label: (
+              <Dropdown menu={menuProductManagementByStore} trigger={['click']} placement="bottom">
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space className="flex items-center">
+                    Danh sách hàng hóa{' '}
+                    <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M17.876 1.72656L16.7933 0.648437L9.05015 8.35937L1.30696 0.648437L0.224321 1.72656L8.50883 9.97656L9.05015 10.4922L9.59147 9.97656L17.876 1.72656Z"
+                        fill="#134E4A"
+                      />
+                    </svg>
+                  </Space>
+                </a>
+              </Dropdown>
+            ),
+            key: "2",
+            children: (
+              <div className="bg-white w-full px-4 rounded-xl pt-5 pb-4 relative">
+                {+tabKey === 2 && keyDropdownProductManagementByStore === 1 && (
+                  <TabData tabKey={tabKey} idStore={idStore} keyDropdown={keyDropdownProductManagementByStore} />
+                )}
+                {+tabKey === 2 && keyDropdownProductManagementByStore === 2 && (
+                  <TabData tabKey={tabKey} idStore={idStore} keyDropdown={keyDropdownProductManagementByStore} />
+                )}
+              </div>
+            ),
+          },
+          {
+            tab: 'Danh sách chi nhánh',
+            key: '3',
+            children: (
+              <div className="bg-white w-full px-4 rounded-xl pt-5 pb-4 relative">
+                {+tabKey === 3 && <TabData tabKey={tabKey} idStore={idStore} data={data} />}
+              </div>
+            ),
+          },
+          {
+            tab: (
+              <Dropdown menu={menuSupplierManagementByStore} trigger={['click']} placement="bottom">
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space className="flex items-center">
+                    Quản lý NCC{' '}
+                    <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M17.876 1.72656L16.7933 0.648437L9.05015 8.35937L1.30696 0.648437L0.224321 1.72656L8.50883 9.97656L9.05015 10.4922L9.59147 9.97656L17.876 1.72656Z"
+                        fill="#134E4A"
+                      />
+                    </svg>
+                  </Space>
+                </a>
+              </Dropdown>
+            ),
+            key: "4",
+            children: (
+              <div className="bg-white w-full px-4 rounded-xl pt-5 pb-4 relative">
+                {+tabKey === 4 && keyDropdownSupplierManagementByStore === 1 && (
+                  <TabData tabKey={tabKey} idStore={idStore} keyDropdown={keyDropdownSupplierManagementByStore} />
+                )}
+                {+tabKey === 4 && keyDropdownSupplierManagementByStore === 2 && (
+                  <TabData tabKey={tabKey} idStore={idStore} keyDropdown={keyDropdownSupplierManagementByStore} />
+                )}
+              </div>
+            ),
+          },
+          {
+            tab: (
+              <Dropdown menu={menu} trigger={['click']} placement="bottom">
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space className="flex items-center">
+                    Doanh thu
+                    <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M17.876 1.72656L16.7933 0.648437L9.05015 8.35937L1.30696 0.648437L0.224321 1.72656L8.50883 9.97656L9.05015 10.4922L9.59147 9.97656L17.876 1.72656Z"
+                        fill="#134E4A"
+                      />
+                    </svg>
+                  </Space>
+                </a>
+              </Dropdown>
+            ),
+            key: "5",
+            children: (
+              <div className="bg-white w-full px-4 rounded-xl pt-5 pb-4 relative">
+                {+tabKey === 5 && keyDropdown === 1 && (
+                  <RevenueByOrderAdmin tabKey={tabKey} idStore={idStore} keyDropdown={keyDropdown} />
+                )}
+                {+tabKey === 5 && keyDropdown === 2 && (
+                  <RevenueByProductAdmin tabKey={tabKey} idStore={idStore} keyDropdown={keyDropdown} />
+                )}
+              </div>
+            ),
+          },
+          {
+            tab: "Quản lý kho",
+            key: "6",
+            children: (
+              <div className="bg-white w-full px-4 rounded-xl pt-5 pb-4 relative">
+                {+tabKey === 6 && <TabData tabKey={tabKey} idStore={idStore} />}
+              </div>
+            ),
+          }
+        ] 
+        : [
+
+        ])
+    ]
 
   return (
     <Fragment>
@@ -382,125 +519,7 @@ const Page = () => {
         <p className="text-2xl font-bold text-teal-900 mb-6">
           {pageType === 'edit' || pageType === 'information' ? 'Thông tin cửa hàng' : 'Cửa hàng'}
         </p>
-        <Tabs onChange={handleChangeTab} className="mt-5" activeKey={String(tabKey)}>
-          <TabPane tab="Thông tin cửa hàng" key="1" className="">
-            <div className="bg-white w-full px-6 rounded-[10px] rounded-tl-none pt-6">
-              <Address
-                submit={pageBranch !== 'branch' ? submit : submitCreateBranch}
-                pageType={pageType}
-                form={form}
-                emailManager={emailManager}
-                data={data}
-                setManagerId={setManagerId}
-                roleCode={roleCode}
-                isHidden={isHidden}
-                setIsHidden={setIsHidden}
-                connectKioViet={connectKioViet}
-                setConnectKioViet={setConnectKioViet}
-                pageBranch={pageBranch}
-                ViewStoreBranch={ViewStoreBranch}
-                setIsCall={setIsCall}
-                isCall={isCall}
-                isMain={!!isMain}
-              />
-              {(roleCode === 'OWNER_STORE' ) && <div className="h-6"></div>}
-            </div>
-          </TabPane>
-          {roleCode === 'ADMIN' && pageType === 'edit' && pageBranch !== 'branch' && (
-            <>
-              <TabPane
-                tab={
-                  <Dropdown overlay={menuProductManagementByStore} trigger={['click']} placement="bottom">
-                    <a onClick={(e) => e.preventDefault()}>
-                      <Space className="flex items-center">
-                        Danh sách hàng hóa{' '}
-                        <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M17.876 1.72656L16.7933 0.648437L9.05015 8.35937L1.30696 0.648437L0.224321 1.72656L8.50883 9.97656L9.05015 10.4922L9.59147 9.97656L17.876 1.72656Z"
-                            fill="#134E4A"
-                          />
-                        </svg>
-                      </Space>
-                    </a>
-                  </Dropdown>
-                }
-                key="2"
-              >
-                <div className="bg-white w-full px-4 rounded-xl pt-5 pb-4 relative">
-                  {+tabKey === 2 && keyDropdownProductManagementByStore === 1 && (
-                    <TabData tabKey={tabKey} idStore={idStore} keyDropdown={keyDropdownProductManagementByStore} />
-                  )}
-                  {+tabKey === 2 && keyDropdownProductManagementByStore === 2 && (
-                    <TabData tabKey={tabKey} idStore={idStore} keyDropdown={keyDropdownProductManagementByStore} />
-                  )}
-                </div>
-              </TabPane>
-              <TabPane tab={'Danh sách chi nhánh'} key="3">
-                <div className="bg-white w-full px-4 rounded-xl pt-5 pb-4 relative">
-                  {+tabKey === 3 && <TabData tabKey={tabKey} idStore={idStore} data={data} />}
-                </div>
-              </TabPane>
-              <TabPane
-                tab={
-                  <Dropdown overlay={menuSupplierManagementByStore} trigger={['click']} placement="bottom">
-                    <a onClick={(e) => e.preventDefault()}>
-                      <Space className="flex items-center">
-                        Quản lý NCC{' '}
-                        <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M17.876 1.72656L16.7933 0.648437L9.05015 8.35937L1.30696 0.648437L0.224321 1.72656L8.50883 9.97656L9.05015 10.4922L9.59147 9.97656L17.876 1.72656Z"
-                            fill="#134E4A"
-                          />
-                        </svg>
-                      </Space>
-                    </a>
-                  </Dropdown>
-                }
-                key="4"
-              >
-                <div className="bg-white w-full px-4 rounded-xl pt-5 pb-4 relative">
-                  {+tabKey === 4 && keyDropdownSupplierManagementByStore === 1 && (
-                    <TabData tabKey={tabKey} idStore={idStore} keyDropdown={keyDropdownSupplierManagementByStore} />
-                  )}
-                  {+tabKey === 4 && keyDropdownSupplierManagementByStore === 2 && (
-                    <TabData tabKey={tabKey} idStore={idStore} keyDropdown={keyDropdownSupplierManagementByStore} />
-                  )}
-                </div>
-              </TabPane>
-              <TabPane
-                tab={
-                  <Dropdown overlay={menu} trigger={['click']} placement="bottom">
-                    <a onClick={(e) => e.preventDefault()}>
-                      <Space className="flex items-center">
-                        Doanh thu
-                        <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M17.876 1.72656L16.7933 0.648437L9.05015 8.35937L1.30696 0.648437L0.224321 1.72656L8.50883 9.97656L9.05015 10.4922L9.59147 9.97656L17.876 1.72656Z"
-                            fill="#134E4A"
-                          />
-                        </svg>
-                      </Space>
-                    </a>
-                  </Dropdown>
-                }
-                key="5"
-              >
-                <div className="bg-white w-full px-4 rounded-xl pt-5 pb-4 relative">
-                  {+tabKey === 5 && keyDropdown === 1 && (
-                    <RevenueByOrderAdmin tabKey={tabKey} idStore={idStore} keyDropdown={keyDropdown} />
-                  )}
-                  {+tabKey === 5 && keyDropdown === 2 && (
-                    <RevenueByProductAdmin tabKey={tabKey} idStore={idStore} keyDropdown={keyDropdown} />
-                  )}
-                </div>
-              </TabPane>
-              <TabPane tab="Quản lý kho" key="6">
-                <div className="bg-white w-full px-4 rounded-xl pt-5 pb-4 relative">
-                  {+tabKey === 6 && <TabData tabKey={tabKey} idStore={idStore} />}
-                </div>
-              </TabPane>
-            </>
-          )}
+        <Tabs onChange={handleChangeTab} items={items} className="mt-5" activeKey={String(tabKey)}>
         </Tabs>
         {+tabKey !== 1 && (
           <div

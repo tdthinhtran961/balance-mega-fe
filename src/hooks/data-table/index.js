@@ -68,7 +68,7 @@ const Hook = ({
   const location = useLocation();
   const navigate = useNavigate();
 
-  const prePage = useRef(param.current[pageIndex]); // Add by Thinh
+  const prePage = useRef(param.current[pageIndex]);
 
   useEffect(() => {
     return () => {
@@ -97,11 +97,11 @@ const Hook = ({
         param.current = JSON.parse(localStorage.getItem(idTable));
       }
 
-      // Edit by Thinh - start
+      
       if (showList && Get) {
         setIsLoading && setIsLoading(true);
         const { data, count, ...prop } = await Get(param.current, id());
-        if ((prePage.current === param.current[pageIndex] || data.length === 0) && param.current[pageIndex] > 1) {
+        if ((prePage.current === param.current[pageIndex] ||!data || data.length === 0) && param.current[pageIndex] > 1) {
           await onChange({
             ...param.current,
             page: 1,
@@ -116,7 +116,7 @@ const Hook = ({
       } else {
         setIsLoading && setIsLoading(false);
       }
-      // Edit by Thinh - end
+      
     },
     [Get, id, idTable, pageIndex, setIsLoading, showList],
   );
@@ -173,7 +173,7 @@ const Hook = ({
     </div>
   );
   const ref = useRef();
-  // noinspection JSUnusedGlobalSymbols
+
   const getColumnSearchInput = (key) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <div className="p-1">
@@ -182,20 +182,22 @@ const Hook = ({
           value={selectedKeys}
           type="text"
           placeholder={t('components.datatable.pleaseEnterValueToSearch')}
-          onChange={(e) => setSelectedKeys(e.target.value)}
-          onKeyDown="return (event.keyCode!=13);"
+          onChange={(e) => {setSelectedKeys(e.target.value)}}
+          onKeyDown={(e) => {
+            if (e.key) return e.key !== 'Enter';
+          }}
         />
         {groupButton(confirm, clearFilters, key, selectedKeys)}
       </div>
     ),
     filterIcon: (filtered) => <i className="las la-lg la-search" style={{ color: filtered ? '#3699FF' : undefined }} />,
-    onFilterDropdownVisibleChange: (visible) => {
-      if (visible) {
+    onFilterDropdownOpenChange: (visible) => {
+      if (visible && ref.current) {
         setTimeout(() => ref.current.select());
       }
     },
   });
-  // noinspection JSUnusedGlobalSymbols
+
   const getColumnSearchRadio = (filters, key) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <Fragment>
@@ -207,7 +209,7 @@ const Hook = ({
       <i className="las la-lg la-dot-circle" style={{ color: filtered ? '#3699FF' : undefined }} />
     ),
   });
-  // noinspection JSUnusedGlobalSymbols
+
   const getColumnSearchCheckbox = (filters, key) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <Fragment>
@@ -219,7 +221,7 @@ const Hook = ({
       <i className="las la-lg la-check-square" style={{ color: filtered ? '#3699FF' : undefined }} />
     ),
   });
-  // noinspection JSUnusedGlobalSymbols
+
   const getColumnSearchDate = (key) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <Fragment>
@@ -283,13 +285,12 @@ const Hook = ({
           params[sort][col.name] === 'ASC' ? 'ascend' : params[sort][col.name] === 'DESC' ? 'descend' : '';
       }
 
-      // Edit by Thinh - start
+
 
       // if (!item.render) {
       //   item.render = (text) => checkTextToShort(text);
       // }
       
-      // Edit by Thinh - end
       
       if (typeof item.width === 'number') item.className = 'cursor-col-resize';
 

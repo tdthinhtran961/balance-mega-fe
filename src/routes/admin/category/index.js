@@ -53,7 +53,7 @@ const Page = () => {
 
   const scrollRef = useRef();
 
-  useEffect(async () => {
+  useEffect( () => {
     const initDataCategory = async () => {
       setIsLoad((prev) => ({ ...prev, loadingMain: true }));
       try {
@@ -100,7 +100,7 @@ const Page = () => {
     initDataCategory();
   }, [searchDebounce]);
 
-  useEffect(async () => {
+  useEffect( () => {
     const initDataCategory = async () => {
       if (idParent.mainParent) {
         setIsLoad((prev) => ({ ...prev, loading1: true }));
@@ -145,7 +145,7 @@ const Page = () => {
     initDataCategory();
   }, [idParent.mainParent, searchDebounce1]);
 
-  useEffect(async () => {
+  useEffect( () => {
     const initDataCategory = async () => {
       if (idParent.parent1) {
         setIsLoad((prev) => ({ ...prev, loading2: true }));
@@ -181,7 +181,7 @@ const Page = () => {
     initDataCategory();
   }, [idParent.parent1, searchDebounce2]);
 
-  useEffect(async () => {
+  useEffect( () => {
     const initDataCategory = async () => {
       if (idParent.parent2) {
         setIsLoad((prev) => ({ ...prev, loading3: true }));
@@ -215,7 +215,7 @@ const Page = () => {
     initDataCategory();
   }, [idParent.parent2, searchDebounce3]);
 
-  useEffect(async () => {
+  useEffect( () => {
     const initDataCategory = async () => {
       if (idParent.parent3) {
         setIsLoad((prev) => ({ ...prev, loading4: true }));

@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router';
 import moment from 'moment';
 import * as XLSX from 'xlsx';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 const { Option } = Select;
 let date = new Date();
 let firstDay = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
@@ -78,41 +79,44 @@ const OrderRevenue = ({ tabKey }) => {
     totalOderCancel: 0,
   });
 
-  useEffect(async () => {
-    const supplierList = await PromotionalGoodsService.getSupplierListWithOrderParams({ supplierType: 'BALANCE' });
-    if (
-      filterSupplierURL !== null &&
-      filterSupplierURL !== 'null' &&
-      filterSupplierURL !== undefined &&
-      filterSupplierURL !== 'undefined'
-    ) {
-      setFilterSupplier(filterSupplierURL);
-    } else {
-      setFilterSupplier(supplierList?.data[0]?.id);
+  useEffect(() => {
+    const fetchData = async () => {
+      const supplierList = await PromotionalGoodsService.getSupplierListWithOrderParams({ supplierType: 'BALANCE' });
+      if (
+        filterSupplierURL !== null &&
+        filterSupplierURL !== 'null' &&
+        filterSupplierURL !== undefined &&
+        filterSupplierURL !== 'undefined'
+      ) {
+        setFilterSupplier(filterSupplierURL);
+      } else {
+        setFilterSupplier(supplierList?.data[0]?.id);
+      }
+  
+      setDisableStore(false);
+      setSupplierList(supplierList.data);
+      if (filterSupplier !== 'null' && filterSupplier) {
+        const valueSupplier = supplierList.data.find((item) => item.id === filterSupplier).name;
+        setFilterSupplierName(valueSupplier);
+      }
+      setHeadExcelInfo((prev) => ({
+        ...prev,
+        supplierName: supplierList?.data[0]?.name,
+      }));
+      if (
+        filterSupplierURL !== null &&
+        filterSupplierURL !== 'null' &&
+        filterSupplierURL !== undefined &&
+        filterSupplierURL !== 'undefined'
+      ) {
+        const storeList = await RevenueService.getStoreBySupplier(filterSupplierURL);
+        setStoreList(storeList.data);
+      } else {
+        const storeList = await RevenueService.getStoreBySupplier(supplierList?.data[0]?.id);
+        setStoreList(storeList.data);
+      }
     }
-
-    setDisableStore(false);
-    setSupplierList(supplierList.data);
-    if (filterSupplier !== 'null' && filterSupplier) {
-      const valueSupplier = supplierList.data.find((item) => item.id === filterSupplier).name;
-      setFilterSupplierName(valueSupplier);
-    }
-    setHeadExcelInfo((prev) => ({
-      ...prev,
-      supplierName: supplierList?.data[0]?.name,
-    }));
-    if (
-      filterSupplierURL !== null &&
-      filterSupplierURL !== 'null' &&
-      filterSupplierURL !== undefined &&
-      filterSupplierURL !== 'undefined'
-    ) {
-      const storeList = await RevenueService.getStoreBySupplier(filterSupplierURL);
-      setStoreList(storeList.data);
-    } else {
-      const storeList = await RevenueService.getStoreBySupplier(supplierList?.data[0]?.id);
-      setStoreList(storeList.data);
-    }
+    fetchData()
   }, []);
 
   const formatCur = (value) => {
@@ -127,13 +131,13 @@ const OrderRevenue = ({ tabKey }) => {
     }
     setShowValidateFilter(false);
     dispatch({ type: 'FROM', dateFrom: dateString });
-    const newDateString = dateString.slice(6, 10) + '/' + dateString.slice(3, 5) + '/' + dateString.slice(0, 2);
-    if (newDateString !== '//') {
+    const formattedDate = moment(dateString, 'DD/MM/YYYY').format('YYYY-MM-DD HH:mm:ss');
+    if (formattedDate !== '//') {
       initDate = {
-        dateFrom: newDateString + ' 00:00:00',
+        dateFrom: formattedDate,
         dateTo: formatDateString(getFormattedDate(date)) + ' 23:59:59',
       };
-      firstDay = new Date(newDateString);
+      firstDay = new Date(formattedDate);
     } else {
       initDate = {
         dateFrom: '',
@@ -501,7 +505,7 @@ const OrderRevenue = ({ tabKey }) => {
                   <DatePicker
                     onChange={onChangeDateFrom}
                     format="DD/MM/YYYY"
-                    defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                    defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                     disabledDate={(current) => {
                       return current && current.valueOf() > Date.now();
                     }}
@@ -526,7 +530,7 @@ const OrderRevenue = ({ tabKey }) => {
                 <DatePicker
                   onChange={onChangeDateTo}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}
@@ -733,8 +737,7 @@ const OrderRevenue = ({ tabKey }) => {
                 {formatDateString(getFormattedDate(firstDay)) !== '1970/01/01' ? (
                   <DatePicker
                     onChange={onChangeDateFrom}
-                    format="DD/MM/YYYY"
-                    defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                    format={'DD/MM/YYYY'}
                     disabledDate={(current) => {
                       return current && current.valueOf() > Date.now();
                     }}
@@ -759,7 +762,8 @@ const OrderRevenue = ({ tabKey }) => {
                 <DatePicker
                   onChange={onChangeDateTo}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                  // defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')} 
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}

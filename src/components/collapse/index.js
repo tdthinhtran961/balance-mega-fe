@@ -79,7 +79,7 @@ const Component = ({
                 visibleChild.current = true;
               }}
               onMouseLeave={() => {
-                if (window.innerWidth > 1024) {
+                if (window.innerWidth < 1024) {
                   visibleChild.current = false;
                   setTimeout(() => {
                     if (visibleChild.current === false) {
@@ -93,8 +93,11 @@ const Component = ({
             </div>
           }
           placement="rightTop"
-          visible={visiblePopover}
-          onMouseEnter={() => set_visiblePopover(true)}
+          open={visiblePopover}
+          onMouseEnter={() => {
+            set_visiblePopover(true)
+            visibleChild.current = true
+          }}
           onMouseLeave={() => {
             if (window.innerWidth > 640) {
               visibleChild.current = false;
@@ -102,7 +105,7 @@ const Component = ({
                 if (visibleChild.current === false) {
                   set_visiblePopover(false);
                 }
-              }, 500);
+              }, 300);
             }
           }}
         >

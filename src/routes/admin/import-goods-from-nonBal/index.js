@@ -9,8 +9,9 @@ import { ColumnTableList, ColumnTableListViewAdmin } from 'columns/import-goods-
 import { ImportGoodsFromNonBalService } from 'services/ImportGoodsFromNonBal';
 import { DatePicker, Select, Space } from 'antd';
 import DateFilterBar from './components/DateFilterBar';
-import moment from 'moment';
+// import moment from 'moment';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 
 const { Option } = Select;
 let date = new Date();
@@ -342,7 +343,7 @@ const Page = () => {
                       className="!bg-white"
                       onChange={onChangeDateFrom}
                       format="DD/MM/YYYY"
-                      defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                      defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                       disabledDate={(current) => {
                         return current && current.valueOf() > Date.now();
                       }}
@@ -368,7 +369,7 @@ const Page = () => {
                   <DatePicker
                     onChange={onChangeDateTo}
                     format="DD/MM/YYYY"
-                    defaultValue={moment()}
+                    defaultValue={dayjs()}
                     disabledDate={(current) => {
                       return current && current.valueOf() > Date.now();
                     }}

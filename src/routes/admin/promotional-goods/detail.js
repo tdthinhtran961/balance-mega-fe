@@ -1292,7 +1292,7 @@ const Page = () => {
           title={false}
           centered
           okText="Tiếp theo"
-          visible={visibleExcel}
+          open={visibleExcel}
           width={831}
           wrapClassName={'modal-add-promotion-goods'}
           footer={
@@ -1602,7 +1602,7 @@ const Page = () => {
           title={false}
           centered
           okText="Tiếp theo"
-          visible={visible}
+          open={visible}
           width={831}
           wrapClassName={'modal-add-promotion-goods'}
           footer={

@@ -8,6 +8,7 @@ import { reFormatDateString, routerLinks, formatDateString, getFormattedDate } f
 import { VoucherService } from 'services/voucher';
 import { ColumnTableVouchers } from 'columns/promotionManagement';
 import moment from 'moment';
+import dayjs from 'dayjs';
 const { Option } = Select;
 moment.locale('en');
 let date = new Date();
@@ -179,7 +180,7 @@ const Page = () => {
                   <DatePicker
                     onChange={onChangeDateFrom}
                     format="DD/MM/YYYY"
-                    defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                    defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                     disabledDate={(current) => {
                       return current && current.valueOf() > Date.now();
                     }}
@@ -201,7 +202,7 @@ const Page = () => {
                 <DatePicker
                   onChange={onChangeDateTo}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}

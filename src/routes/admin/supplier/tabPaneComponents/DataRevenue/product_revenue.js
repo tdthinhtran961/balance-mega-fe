@@ -9,6 +9,7 @@ import moment from 'moment';
 import classNames from 'classnames';
 import * as XLSX from 'xlsx';
 import './index.less';
+import dayjs from 'dayjs';
 const { Option } = Select;
 const date = new Date();
 const firstDay = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
@@ -391,7 +392,7 @@ const ProductRevenue = ({ subOrgId }) => {
               <DatePicker
                 onChange={onChangeDateFrom}
                 format="DD/MM/YYYY"
-                defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
                   // return moment().add(-1, 'days') <= current;
                   return current && current.valueOf() > Date.now();
@@ -407,7 +408,7 @@ const ProductRevenue = ({ subOrgId }) => {
               <DatePicker
                 onChange={onChangeDateTo}
                 format="DD/MM/YYYY"
-                defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
                   // return moment().add(-1, 'days') <= current;
                   return current && current.valueOf() > Date.now();

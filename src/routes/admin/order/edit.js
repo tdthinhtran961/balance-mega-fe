@@ -82,28 +82,31 @@ function Page() {
       .reduce((a, c) => a + c?.price * c?.quantity * (+c?.product?.importTax?.taxRate / 100 + 1), 0)
       .toLocaleString('fullwide', { useGrouping: false });
 
-  useEffect(async () => {
-    const res = await SupplierService.getDetailGoodsById(idOrder);
-    setVoucherText(res?.data?.voucher?.code);
-    setDiscount(res?.data?.voucher);
-    setFilterTax(!!res?.data?.isApplyTax === true ? taxApply.APPLY : taxApply.NO_APPLY);
-    setInforOrder(res?.data);
-    setListOrder(res?.data?.orderLineItem);
-    const resProduct = await PromotionalGoodsService.getListProduct({
-      ...params,
-      filterSupplier: res?.data?.supplier?.name,
-    });
-    setTotal(resProduct?.count);
-    setListProductBasic(resProduct?.data);
-    setParams({ ...params, filterSupplier: res?.data?.supplier?.name });
-    const data = resProduct?.data.filter((goods) => {
-      return res?.data?.orderLineItem.findIndex((item) => item?.product?.barcode === goods?.barcode) === -1;
-    });
-    setListProduct(data);
-    form.setFieldsValue(res);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await SupplierService.getDetailGoodsById(idOrder);
+      setVoucherText(res?.data?.voucher?.code);
+      setDiscount(res?.data?.voucher);
+      setFilterTax(!!res?.data?.isApplyTax === true ? taxApply.APPLY : taxApply.NO_APPLY);
+      setInforOrder(res?.data);
+      setListOrder(res?.data?.orderLineItem);
+      const resProduct = await PromotionalGoodsService.getListProduct({
+        ...params,
+        filterSupplier: res?.data?.supplier?.name,
+      });
+      setTotal(resProduct?.count);
+      setListProductBasic(resProduct?.data);
+      setParams({ ...params, filterSupplier: res?.data?.supplier?.name });
+      const data = resProduct?.data.filter((goods) => {
+        return res?.data?.orderLineItem.findIndex((item) => item?.product?.barcode === goods?.barcode) === -1;
+      });
+      setListProduct(data);
+      form.setFieldsValue(res);
+    }
+    fetchData()
   }, []);
 
-  useEffect(async () => {
+  useEffect( () => {
     const fetchListProduct = async () => {
       if (total !== 0 && listProduct?.length >= total) {
         setHasMore(false);
@@ -428,27 +431,30 @@ function Page() {
     return setListOrder([...tempOrder]);
   };
 
-  useEffect(async () => {
-    if (isNullOrUndefinedOrEmpty(voucherText)) {
-      setDiscount({});
-    }
-    if (totalPrice < discount?.conditionApplyAmount && voucherText !== '') {
-      Message.error({ text: 'Điều kiện áp dụng voucher không đủ' });
-      setDiscount('');
-    } else if (voucherText === '') {
-      setDiscount('');
-    } else if (voucherText) {
-      const res_ = await VoucherService.getInfo({
-        code: voucherText,
-        supplierId: inforOrder?.supplierId,
-        totalAmount: totalPrice,
-      });
-      if (!res_) {
+  useEffect(() => {
+    const fetchData = async () => {
+      if (isNullOrUndefinedOrEmpty(voucherText)) {
+        setDiscount({});
+      }
+      if (totalPrice < discount?.conditionApplyAmount && voucherText !== '') {
+        Message.error({ text: 'Điều kiện áp dụng voucher không đủ' });
         setDiscount('');
-      } else {
-        setDiscount(res_?.data);
+      } else if (voucherText === '') {
+        setDiscount('');
+      } else if (voucherText) {
+        const res_ = await VoucherService.getInfo({
+          code: voucherText,
+          supplierId: inforOrder?.supplierId,
+          totalAmount: totalPrice,
+        });
+        if (!res_) {
+          setDiscount('');
+        } else {
+          setDiscount(res_?.data);
+        }
       }
     }
+    fetchData()
   }, [totalPrice, listOrder]);
 
   const onFinish = async () => {

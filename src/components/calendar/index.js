@@ -30,7 +30,7 @@ const Component = ({ idRequest, Get, onClick, formatData }) => {
     handleChangeDate(new Date());
   }, [handleChangeDate]);
 
-  // noinspection JSUnusedGlobalSymbols
+
   return (
     <Calendar
       selectable

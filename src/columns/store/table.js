@@ -19,7 +19,7 @@ const Column = () => {
          title: "Địa chỉ",
          name: "address",
          tableItem: {
-            width: '40%', // Add by Thinh
+            width: '40%',
          },
       },
       {

@@ -33,8 +33,11 @@ const Component = ({ formItem, form, value, showSearch = true, ...prop }) => {
     [form, formItem, value],
   );
 
-  useEffect(async () => {
-    await loadData('');
+  useEffect(() => {
+    const data = async () => {
+      await loadData('');
+    }
+    data()
   }, [value, formItem]);
 
   return (

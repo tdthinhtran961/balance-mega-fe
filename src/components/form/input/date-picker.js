@@ -1,7 +1,7 @@
 import React from 'react';
 import { DatePicker } from 'antd';
-import moment from 'moment';
 import { v4 } from 'uuid';
+import dayjs from 'dayjs';
 
 const Component = ({ form, name, ...props }) => {
   if (!props.id) {
@@ -13,7 +13,7 @@ const Component = ({ form, name, ...props }) => {
       onOpenChange={(e) => {
         if (!e) {
           const value = document.getElementById(props.id).value;
-          const selectDate = moment(value, props.format || 'DD/MM/YYYY');
+          const selectDate = dayjs(value, props.format || 'DD/MM/YYYY');
           if (
             selectDate.isValid() &&
             props.onChange &&

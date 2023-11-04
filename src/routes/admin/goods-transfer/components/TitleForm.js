@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import { Col, DatePicker, Form, Input, Row, Space, Select } from 'antd';
 import { GoodTransferService } from 'services/GoodTransfer';
+import dayjs from 'dayjs';
 
 const TitleForm = (props) => {
   const {
@@ -157,9 +158,9 @@ const TitleForm = (props) => {
                         // onChange={handleSelectDate}
                         format="DD/MM/YYYY"
                         className="!w-[100%] lg:!w-[60%] !bg-white !border-gray-200 !text-gray-500 "
-                        // defaultValue={moment()}
+                        // defaultValue={dayjs()}
                         disabledDate={(current) => {
-                          return moment().add(-1, 'days') >= current;
+                          return dayjs().add(-1, 'days') >= current;
                           // return current && current.valueOf() < Date.now();
                         }}
 

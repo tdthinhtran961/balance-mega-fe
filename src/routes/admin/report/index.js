@@ -14,6 +14,7 @@ import * as XLSX from 'xlsx';
 import moment from 'moment';
 import classNames from 'classnames';
 import { StoreService } from 'services/store';
+import dayjs from 'dayjs';
 
 const { Search } = Input;
 // import moment from 'moment';
@@ -343,13 +344,13 @@ const Page = () => {
                     } else {
                       setShowValidateFilter(false);
                     }
-                    setFilterDate((prev) => ({ ...prev, dateFrom: moment(date).format('YYYY-MM-DD') + ' 00:00:00' }));
+                    setFilterDate((prev) => ({ ...prev, dateFrom: dayjs(date).format('YYYY-MM-DD') + ' 00:00:00' }));
                   }}
                   format="DD/MM/YYYY"
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}
-                  defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                   className="!bg-white !w-full"
                   size={'middle'}
                 />
@@ -370,10 +371,10 @@ const Page = () => {
                     } else {
                       setShowValidateFilter(false);
                     }
-                    setFilterDate((prev) => ({ ...prev, dateTo: moment(date).format('YYYY-MM-DD') + ' 23:59:59' }));
+                    setFilterDate((prev) => ({ ...prev, dateTo: dayjs(date).format('YYYY-MM-DD') + ' 23:59:59' }));
                   }}
                   format="DD/MM/YYYY"
-                  defaultValue={moment()}
+                  defaultValue={dayjs()}
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}

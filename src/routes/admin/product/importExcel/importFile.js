@@ -217,7 +217,7 @@ const ImportFile = ({ setDataExcel, setDisabled }) => {
           </span>{' '}
         </div>
       </div>
-      {/* <Modal visible={previewVisible} title={previewTitle} footer={null} onCancel={handleCancel}>
+      {/* <Modal open={previewVisible} title={previewTitle} footer={null} onCancel={handleCancel}>
         <img
           alt="example"
           style={{

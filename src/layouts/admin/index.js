@@ -165,7 +165,7 @@ const Layout = ({ children }) => {
           </div> */}
             <Dropdown
               trigger={['click']}
-              overlay={
+              menu={
                 <ul className="bg-white">
                   <li
                     className="p-2 flex items-center pl-4 cursor-pointer border-b border-solid border-gray-200"

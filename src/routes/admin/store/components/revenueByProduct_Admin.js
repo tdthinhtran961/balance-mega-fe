@@ -10,6 +10,7 @@ import { DatePicker, Space, Select, Table, Form } from 'antd';
 import { reFormatDateString, formatCurrency, formatDateString, getFormattedDate } from 'utils';
 import moment from 'moment';
 import * as XLSX from 'xlsx';
+import dayjs from 'dayjs';
 const { Option } = Select;
 const date = new Date();
 const firstDay = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
@@ -107,31 +108,34 @@ const RevenueByProductAdmin = (ObjectStore) => {
       dateTo: dateString,
     }));
   };
-  useEffect(async () => {
-    setDisableSupplier(false);
-    setHeadExcelInfo((prev) => ({
-      ...prev,
-      storeName: subOrgId,
-    }));
-    const supplierListBalance = await SupplierService.getListSupplierBalance({
-      page: 1,
-      perPage: 100000,
-      idSuppiler: subOrgId,
-    });
-    const supplierListNonBalance = await SupplierService.getListSupplierNonBal({
-      page: 1,
-      perPage: 100000,
-      storeId: subOrgId,
-      supplierType: 'NON_BALANCE',
-    });
-    setSupplierList(supplierListBalance?.data.concat(supplierListNonBalance.data));
-
-    // const supplierList = await SupplierService.getDetailListConnectSupplier(
-    //   { page: 1, perPage: 100000, idSuppiler: subOrgId },
-    //   subOrgId,
-    // );
-
-    // setSupplierList(supplierList?.data);
+  useEffect(() => {
+    const fetchData = async () => {
+      setDisableSupplier(false);
+      setHeadExcelInfo((prev) => ({
+        ...prev,
+        storeName: subOrgId,
+      }));
+      const supplierListBalance = await SupplierService.getListSupplierBalance({
+        page: 1,
+        perPage: 100000,
+        idSuppiler: subOrgId,
+      });
+      const supplierListNonBalance = await SupplierService.getListSupplierNonBal({
+        page: 1,
+        perPage: 100000,
+        storeId: subOrgId,
+        supplierType: 'NON_BALANCE',
+      });
+      setSupplierList(supplierListBalance?.data.concat(supplierListNonBalance.data));
+  
+      // const supplierList = await SupplierService.getDetailListConnectSupplier(
+      //   { page: 1, perPage: 100000, idSuppiler: subOrgId },
+      //   subOrgId,
+      // );
+  
+      // setSupplierList(supplierList?.data);
+    }
+    fetchData()
   }, []);
   useEffect(() => {
     const initDataCategory = async () => {
@@ -479,7 +483,7 @@ const RevenueByProductAdmin = (ObjectStore) => {
               <DatePicker
                 onChange={onChangeDateFrom}
                 format="DD/MM/YYYY"
-                defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
                   return current && current.valueOf() > Date.now();
                 }}
@@ -491,7 +495,7 @@ const RevenueByProductAdmin = (ObjectStore) => {
               <DatePicker
                 onChange={onChangeDateTo}
                 format="DD/MM/YYYY"
-                defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
                   return current && current.valueOf() > Date.now();
                 }}

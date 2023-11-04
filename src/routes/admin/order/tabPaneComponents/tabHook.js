@@ -9,7 +9,7 @@ import {
 } from 'columns/orderManagement';
 import { useAuth } from 'global';
 import { HookDataTable } from 'hooks';
-import moment from 'moment';
+// import moment from 'moment';
 import React, { useEffect, useState, useRef, useReducer } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router';
@@ -17,6 +17,7 @@ import { StoreService } from 'services/store';
 import { SupplierService } from 'services/supplier';
 import { routerLinks, formatCurrency, reFormatDateString, getFormattedDate, formatDateString } from 'utils';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 
 const { Option } = Select;
 const { Search } = Input;
@@ -321,7 +322,7 @@ const TabData = ({ tabKey, navigateDetail, statusName }) => {
                   className="!bg-white"
                   onChange={onChangeDateFrom}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}
@@ -344,7 +345,7 @@ const TabData = ({ tabKey, navigateDetail, statusName }) => {
               <DatePicker
                 onChange={onChangeDateTo}
                 format="DD/MM/YYYY"
-                defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
                   return current && current.valueOf() > Date.now();
                 }}

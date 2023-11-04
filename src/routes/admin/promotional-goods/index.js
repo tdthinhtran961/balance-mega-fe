@@ -9,9 +9,10 @@ import { ColumnTableList } from 'columns/promotional-goods';
 import { PromotionalGoodsService } from 'services/PromotionalGoods';
 import { DatePicker, Select, Space } from 'antd';
 import DateFilterBar from './components/DateFilterBar';
-import moment from 'moment';
+// import moment from 'moment';
 import { SupplierService } from 'services/supplier';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 
 let date = new Date();
 let firstDay = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
@@ -304,7 +305,7 @@ const Page = () => {
                       className="!bg-white"
                       onChange={onChangeDateFrom}
                       format="DD/MM/YYYY"
-                      defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                      defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                       disabledDate={(current) => {
                         return current && current.valueOf() > Date.now();
                       }}
@@ -330,7 +331,7 @@ const Page = () => {
                   <DatePicker
                     onChange={onChangeDateTo}
                     format="DD/MM/YYYY"
-                    defaultValue={moment()}
+                    defaultValue={dayjs()}
                     disabledDate={(current) => {
                       return current && current.valueOf() > Date.now();
                     }}

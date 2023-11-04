@@ -7,7 +7,7 @@ import { linkApi } from "variable";
 export const FileService = {
   nameLink: "file",
 
-  // Edit by Thinh - Start
+  
   /**
    * 
    * @param {*} fileType : Type of file
@@ -23,5 +23,5 @@ export const FileService = {
       return false;
     }
   }
-  // Edit by Thinh - End
+  
 }

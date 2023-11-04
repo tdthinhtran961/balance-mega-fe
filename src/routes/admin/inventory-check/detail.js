@@ -91,7 +91,6 @@ const Page = () => {
     setParams((prev) => ({ ...prev, page: pageIndex, perPage: pageSize }));
   }, [pageIndex, pageSize]);
 
-  // Edit by Thinh - start (BL-1549)
   const arrayListProduct = useMemo(() => {
     const newArray = [...dataArr]
       .map((a) => {
@@ -137,7 +136,6 @@ const Page = () => {
     unitChange.length === 0 && setUnitChange(listIndex);
     return [...newArray];
   }, [dataArr, listItem]);
-  // Edit by Thinh - end (BL-1549)
 
   useEffect(() => {
     if (params.supplierId !== null && pageType === 'edit' && supplierList.length > 0) {

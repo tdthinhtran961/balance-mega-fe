@@ -5,7 +5,6 @@ import { routerLinks } from 'utils';
 import { Tabs } from 'antd';
 import TabData from './components/TabTableProduct';
 import { useAuth } from 'global';
-const { TabPane } = Tabs;
 
 const Page = () => {
   const mount = useRef(false);
@@ -46,37 +45,29 @@ const Page = () => {
     navigate(`${routerLinks('Product')}?tab=${key}`);
   };
 
+  const items = [
+    {
+      label:roleCode === 'OWNER_STORE' ? "Balance" : "Danh sách sản phẩm", 
+      key:"1", 
+      children: <div className="bg-white w-full px-6 rounded-xl rounded-tl-none pt-6 pb-4 relative">
+        {+tabKey === 1 && <TabData tabKey={tabKey} navigateEdit={navigateEdit} />}
+      </div>
+    },
+    {
+      label:roleCode === 'OWNER_STORE' ? "Non-Balance" : "Phê duyệt sản phẩm", 
+      key:"2", 
+      children: <div className="bg-white w-full px-6 rounded-xl pt-6 pb-4 relative">
+        {+tabKey === 2 && <TabData tabKey={tabKey} navigateEdit={navigateEdit} />}
+      </div>
+    },
+  ]
+
   return (
     <Fragment>
       <div className="table-category min-h-screen product-wrapper">
         <p className="text-2xl font-bold text-teal-900 mb-6">Quản lý sản phẩm</p>
-        {roleCode === 'OWNER_STORE'  ? (
-          <Tabs defaultActiveKey="1" className="mt-5" onChange={handleChangeTab} activeKey={String(tabKey)}>
-            <TabPane tab="Balance" key="1">
-              <div className="bg-white w-full px-6 rounded-xl rounded-tl-none pt-6 pb-4 relative">
-                {+tabKey === 1 && <TabData tabKey={tabKey} navigateEdit={navigateEdit} />}
-              </div>
-            </TabPane>
-            <TabPane tab="Non-Balance" key="2">
-              <div className="bg-white w-full px-6 rounded-xl pt-6 pb-4 relative">
-                {+tabKey === 2 && <TabData tabKey={tabKey} navigateEdit={navigateEdit} />}
-              </div>
-            </TabPane>
+          <Tabs defaultActiveKey="1" items={items} className="mt-5" onChange={handleChangeTab} activeKey={String(tabKey)}>
           </Tabs>
-        ) : (
-          <Tabs defaultActiveKey="1" className="mt-5" onChange={handleChangeTab} activeKey={String(tabKey)}>
-            <TabPane tab="Danh sách sản phẩm" key="1">
-              <div className="bg-white w-full px-6 rounded-xl rounded-tl-none pt-6 pb-4 relative">
-                {+tabKey === 1 && <TabData tabKey={tabKey} navigateEdit={navigateEdit} />}
-              </div>
-            </TabPane>
-            <TabPane tab="Phê duyệt sản phẩm" key="2">
-              <div className="bg-white w-full px-6 rounded-xl pt-6 pb-4 relative">
-                {+tabKey === 2 && <TabData tabKey={tabKey} navigateEdit={navigateEdit} />}
-              </div>
-            </TabPane>
-          </Tabs>
-        )}
       </div>
     </Fragment>
   );

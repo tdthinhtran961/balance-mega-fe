@@ -68,13 +68,16 @@ function Page() {
       title = 'Giỏ hàng';
       break;
   }
-  useEffect(async () => {
-    const res = await CartService.getListCart();
-    for (let i = 0; i < res.data.cartLineItem?.length; i++) {
-      const item = res?.data?.cartLineItem[i];
-      res['quantity' + item.productId] = res?.data?.cartLineItem[i].quantity;
+  useEffect(() => {
+    const data = async () => {
+      const res = await CartService.getListCart();
+      for (let i = 0; i < res.data.cartLineItem?.length; i++) {
+        const item = res?.data?.cartLineItem[i];
+        res['quantity' + item.productId] = res?.data?.cartLineItem[i].quantity;
+      }
+      form.setFieldsValue(res);
     }
-    form.setFieldsValue(res);
+    data()
   }, [pageType]);
 
   const _renderCart = () => {
@@ -696,7 +699,7 @@ function Page() {
           title="Thông báo"
           centered
           okText="Đồng ý"
-          visible={visible}
+          open={visible}
           onOk={async () => {
             await CartService.deleteNotApproveProduct();
             await fetchListCart();

@@ -11,7 +11,6 @@ import { ColumnPassword, ColumnInfo, ColumnAddress } from 'columns/profile';
 
 import { ProfileService } from 'services/profile';
 
-const { TabPane } = Tabs;
 
 const Page = () => {
   const [form] = FormAnt.useForm();
@@ -135,6 +134,42 @@ const Page = () => {
     }
   };
 
+  const items = [
+    {
+      tab:"Thông tin cá nhân", key:"1",
+      children:
+        <div className="bg-white w-full pr-6 rounded-xl rounded-tl-none pt-6 relative">
+          <Form
+            className="!ml-4 w-full info"
+            columns={ColumnInfo({ edit })}
+            checkHidden={true}
+            values={data}
+            form={infoForm}
+          />
+          <Form
+            className="!ml-4 w-full address"
+            columns={ColumnAddress({
+            })}
+            checkHidden={true}
+            values={data}
+            form={infoForm}
+          />
+        </div>
+    },
+    {
+      tab:"Đổi mật khẩu", key:"2",
+      children:
+        <div className="bg-white w-full pr-6 rounded-xl pt-6 pb-4 relative">
+          <Form
+            className="!ml-4 w-full info"
+            columns={ColumnPassword()}
+            checkHidden={true}
+            form={form}
+          />
+        </div>
+    }
+  ]
+
   return (
     <Fragment>
       <div className="min-h-screen">
@@ -223,49 +258,7 @@ const Page = () => {
             </div>
           </div>
           <div className="bg-white rounded-xl w-[90%] lg:w-[70%] 2xl:w-[75%] ml-0 lg:ml-[20px] profile">
-            <Tabs defaultActiveKey="1" onChange={onChange} activeKey={String(tabKey)} className="mt-5">
-              <TabPane tab="Thông tin cá nhân" key="1" className="">
-                <div className="bg-white w-full pr-6 rounded-xl rounded-tl-none pt-6 relative">
-                  <Form
-                    className="!ml-4 w-full info"
-                    columns={ColumnInfo({ edit })}
-                    // handSubmit={submit}
-                    checkHidden={true}
-                    values={data}
-                    form={infoForm}
-                  />
-                  {/* <h1 className="mb-2 ml-4 text-base">
-                    Địa chỉ cửa hàng<span className="text-red-400">*</span>
-                  </h1> */}
-                  <Form
-                    className="!ml-4 w-full address"
-                    columns={ColumnAddress({
-                      // edit,
-                      // province,
-                      // district,
-                      // ward,
-                      // setDistrictCode,
-                      // setProvinceCode,
-                    })}
-                    // handSubmit={submit}
-                    checkHidden={true}
-                    values={data}
-                    form={infoForm}
-                  />
-                </div>
-              </TabPane>
-              <TabPane tab="Đổi mật khẩu" key="2">
-                <div className="bg-white w-full pr-6 rounded-xl pt-6 pb-4 relative">
-                  <Form
-                    className="!ml-4 w-full info"
-                    columns={ColumnPassword()}
-                    // handSubmit={submit}
-                    checkHidden={true}
-                    // values={data}
-                    form={form}
-                  />
-                </div>
-              </TabPane>
+            <Tabs defaultActiveKey="1" items={items} onChange={onChange} activeKey={String(tabKey)} className="mt-5">
             </Tabs>
           </div>
         </div>

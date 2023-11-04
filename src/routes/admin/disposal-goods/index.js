@@ -8,9 +8,9 @@ import './index.less';
 import { ColumnTableList } from 'columns/disposal-goods';
 import { DisposalGoodsService } from 'services/DisposalGoods';
 import { Select, Space, DatePicker } from 'antd';
-import moment from 'moment';
 import DateFilterBar from './components/DateFilterBar';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 
 const { Option } = Select;
 let date = new Date();
@@ -257,7 +257,7 @@ const Page = () => {
                       className="!bg-white"
                       onChange={onChangeDateFrom}
                       format="DD/MM/YYYY"
-                      defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                      defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                       disabledDate={(current) => {
                         return current && current.valueOf() > Date.now();
                       }}
@@ -283,7 +283,7 @@ const Page = () => {
                   <DatePicker
                     onChange={onChangeDateTo}
                     format="DD/MM/YYYY"
-                    defaultValue={moment()}
+                    defaultValue={dayjs()}
                     disabledDate={(current) => {
                       return current && current.valueOf() > Date.now();
                     }}

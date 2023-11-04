@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { Col, Modal, Row, Form, Input, Tooltip, DatePicker, Select as SelectAnt } from 'antd';
-import moment from 'moment';
+// import moment from 'moment';
 import unorm from 'unorm';
 
 import { exportSvg } from 'utils/exportSvg';
@@ -18,6 +18,7 @@ import { SaleService } from 'services/sales';
 import './index.less';
 import ImgCart from '../../../assets/images/imgcart.png';
 import { CloseButton, Close, AddressIcon, Gps } from '../../../assets/svg/index';
+import dayjs from 'dayjs';
 
 const { Search } = Input;
 export const blockInvalidChar = (e) => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
@@ -37,7 +38,7 @@ function Page() {
   const [customers, setCustomers] = useState({})
   const [addresDetail, setAddressDetail] = useState('')
 
-  useEffect(async() => {
+  useEffect(() => {
     set_isDesktop(window.innerWidth > 640);
   }, []);
   const pageType =
@@ -81,13 +82,16 @@ function Page() {
       title = 'Giỏ hàng';
       break;
   }
-  useEffect(async () => {
-    const res = await CartService.getListCart();
-    for (let i = 0; i < res.data.cartLineItem?.length; i++) {
-      const item = res?.data?.cartLineItem[i];
-      res['quantity' + item.productId] = res?.data?.cartLineItem[i].quantity;
+  useEffect(() => {
+    const data = async () => {
+      const res = await CartService.getListCart();
+      for (let i = 0; i < res.data.cartLineItem?.length; i++) {
+        const item = res?.data?.cartLineItem[i];
+        res['quantity' + item.productId] = res?.data?.cartLineItem[i].quantity;
+      }
+      form.setFieldsValue(res);
     }
-    form.setFieldsValue(res);
+    data()
   }, [pageType]);
 
   const _renderCart = () => {
@@ -672,7 +676,7 @@ function Page() {
                               // setFilterDate((prev) => ({ ...prev, dateTo: moment(date).format('YYYY-MM-DD') + ' 23:59:59' }));
                             }}
                             format="DD/MM/YYYY"
-                            defaultValue={moment()}
+                            defaultValue={dayjs()}
                             //   disabledDate={(current) => {
                             //     return current && current.valueOf() > Date.now();
                             //   }}
@@ -699,7 +703,7 @@ function Page() {
                               // setFilterDate((prev) => ({ ...prev, dateTo: moment(date).format('YYYY-MM-DD') + ' 23:59:59' }));
                             }}
                             format="DD/MM/YYYY"
-                            defaultValue={moment()}
+                            defaultValue={dayjs()}
                             //   disabledDate={(current) => {
                             //     return current && current.valueOf() > Date.now();
                             //   }}
@@ -969,7 +973,7 @@ function Page() {
           title="Thêm mới khách hàng"
           centered
           okText="Thêm"
-          visible={visible}
+          open={visible}
           onOk={async () => {
             customerForm && customerForm.submit();
             // await CartService.deleteNotApproveProduct();

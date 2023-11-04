@@ -10,7 +10,7 @@ import React, { useEffect, useState, useReducer } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import { SupplierService } from 'services/supplier';
 import { formatCurrency, routerLinks } from 'utils';
-const TabPane = Tabs.TabPane;
+import dayjs from 'dayjs';
 const date = new Date();
 const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
 const formatDate = (dateString) => {
@@ -210,6 +210,28 @@ const DataRevenue = ({ id }) => {
       </div>
     );
   }
+
+  const items = [
+    {
+      tab: <span className="font-medium text-sm text-teal-900">Đã giao</span>,
+      key: "1",
+      children: (
+        <div className="mt-4">
+          {Number(detailRevenueKey) === 1 && DataTableRevenue()}
+        </div>
+      ),
+    },
+    {
+      tab: "Trả hàng",
+      key: "2",
+      children: (
+        <div className="mt-4">
+          {Number(detailRevenueKey) === 2 && DataTableRevenueReturnOrder()}
+        </div>
+      ),
+    },
+  ];
+
   return (
     <div>
       <div className="sm:relative mb-5 sm:mt-0 mt-4">
@@ -219,7 +241,7 @@ const DataRevenue = ({ id }) => {
             <DatePicker
               onChange={onChangeDateFrom}
               format="DD/MM/YYYY"
-              defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+              defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
               disabledDate={(current) => {
                 // return moment().add(-1, 'days') <= current;
                 return current && current.valueOf() > Date.now();
@@ -232,7 +254,7 @@ const DataRevenue = ({ id }) => {
             <DatePicker
               onChange={onChangeDateTo}
               format="DD/MM/YYYY"
-              defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+              defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
               disabledDate={(current) => {
                 // return moment().add(-1, 'days') <= current;
                 return current && current.valueOf() > Date.now();
@@ -276,13 +298,7 @@ const DataRevenue = ({ id }) => {
         </div>
       </div>
       <div className="font-medium tab-revenue">
-        <Tabs defaultActiveKey="1" className="mt-10" onChange={onChangeDetailKey} activeKey={String(detailRevenueKey)}>
-          <TabPane className="font-medium text-sm text-teal-900" tab="Đã giao" key="1">
-            {+detailRevenueKey === 1 && <div className="mt-4">{DataTableRevenue()}</div>}
-          </TabPane>
-          <TabPane tab="Trả hàng" key="2">
-            {+detailRevenueKey === 2 && <div className="mt-4">{DataTableRevenueReturnOrder()}</div>}
-          </TabPane>
+        <Tabs defaultActiveKey="1" items={items} className="mt-10" onChange={onChangeDetailKey} activeKey={String(detailRevenueKey)}>
         </Tabs>
       </div>
     </div>

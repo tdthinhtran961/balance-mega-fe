@@ -8,6 +8,7 @@ import { DatePicker, Space, Table, Select } from 'antd';
 import { formatCurrency, getFormattedDate, formatDateString, reFormatDateString } from 'utils';
 import moment from 'moment';
 import * as XLSX from 'xlsx';
+import dayjs from 'dayjs';
 
 const { Option } = Select;
 const date = new Date();
@@ -250,7 +251,7 @@ const RevenueByOrderAdmin = (ObjectStore) => {
                 <DatePicker
                   onChange={onChangeDateFrom}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}
@@ -262,7 +263,7 @@ const RevenueByOrderAdmin = (ObjectStore) => {
                 <DatePicker
                   onChange={onChangeDateTo}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}

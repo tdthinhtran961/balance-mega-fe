@@ -7,7 +7,6 @@ import { Tabs } from 'antd';
 import OrderRevenue from '../tabPaneComponents/DataRevenue/order_revenue';
 import ProductRevenue from '../tabPaneComponents/DataRevenue/product_revenue';
 // const DataRevenue = lazy(() => import('../tabPaneComponents/DataRevenue'));
-const { TabPane } = Tabs;
 const SupplierRevenue = () => {
   const { user } = useAuth();
   const subOrgId = user?.userInfor?.subOrgId;
@@ -46,21 +45,32 @@ const SupplierRevenue = () => {
     navigate(`${routerLinks('Revenue')}?tab=${key}`);
   };
 
+  const items = [
+    {
+      tab: "Doanh thu theo đơn hàng",
+      key: "1",
+      children: (
+        <div className="bg-white w-full px-6 rounded-xl rounded-tl-none pt-6 pb-4 relative">
+          {Number(tabKey) === 1 && <OrderRevenue tabKey={tabKey} subOrgId={subOrgId} />}
+        </div>
+      ),
+    },
+    {
+      tab: "Doanh thu theo sản phẩm",
+      key: "2",
+      children: (
+        <div className="bg-white w-full px-6 rounded-xl pt-6 pb-4 relative">
+          {Number(tabKey) === 2 && <ProductRevenue tabKey={tabKey} subOrgId={subOrgId} />}
+        </div>
+      ),
+    },
+  ];
+
   return (
     <Fragment>
       <div className="table-category min-h-screen product-wrapper">
         <p className="text-2xl font-bold text-teal-900 mb-6">Doanh thu nhà cung cấp</p>
-        <Tabs defaultActiveKey="1" className="mt-5" onChange={handleChangeTab} activeKey={String(tabKey)}>
-          <TabPane tab="Doanh thu theo đơn hàng" key="1">
-            <div className="bg-white w-full px-6 rounded-xl rounded-tl-none pt-6 pb-4 relative">
-              {+tabKey === 1 && <OrderRevenue tabKey={tabKey} subOrgId={subOrgId} />}
-            </div>
-          </TabPane>
-          <TabPane tab="Doanh thu theo sản phẩm" key="2">
-            <div className="bg-white w-full px-6 rounded-xl pt-6 pb-4 relative">
-              {+tabKey === 2 && <ProductRevenue tabKey={tabKey} subOrgId={subOrgId} />}
-            </div>
-          </TabPane>
+        <Tabs defaultActiveKey="1" items={items} className="mt-5" onChange={handleChangeTab} activeKey={String(tabKey)}>
         </Tabs>
       </div>
     </Fragment>

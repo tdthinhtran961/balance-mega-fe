@@ -14,9 +14,10 @@ import { HookDataTable } from 'hooks';
 import { SupplierService } from 'services/supplier';
 import { useAuth } from 'global';
 import { ColumnReturnGoods } from 'columns/merchandiseManagement';
-import moment from 'moment';
+// import moment from 'moment';
 import { Select, Space, DatePicker } from 'antd';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 const { Option } = Select;
 let date = new Date();
 let firstDay = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
@@ -237,7 +238,7 @@ const PromotionOrderManagement = () => {
                 <DatePicker
                   onChange={onChangeDateFrom}
                   format="DD/MM/YYYY"
-                  defaultValue={moment(getFormattedDate(firstDay), 'DD/MM/YYYY')}
+                  defaultValue={dayjs(getFormattedDate(firstDay), 'DD/MM/YYYY')}
                   disabledDate={(current) => {
                     return current && current.valueOf() > Date.now();
                   }}
@@ -259,7 +260,7 @@ const PromotionOrderManagement = () => {
               <DatePicker
                 onChange={onChangeDateTo}
                 format="DD/MM/YYYY"
-                defaultValue={moment(getFormattedDate(date), 'DD/MM/YYYY')}
+                defaultValue={dayjs(getFormattedDate(date), 'DD/MM/YYYY')}
                 disabledDate={(current) => {
                   return current && current.valueOf() > Date.now();
                 }}

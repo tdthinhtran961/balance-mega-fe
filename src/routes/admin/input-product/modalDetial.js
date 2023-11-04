@@ -33,7 +33,7 @@ const ModalDetail = ({
     <Modal
       title={false}
       centered
-      visible={visible}
+      open={visible}
       width={840}
       maskClosable={false}
       closable={false}
